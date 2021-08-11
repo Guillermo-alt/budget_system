@@ -1,0 +1,56 @@
+<%- include('headers/header.NewBudget.ejs')%>
+<body>
+    <h1>Nuevo Presupuesto</h1>
+    <h3>Resumen financiero</h3>
+    
+        <form action="">
+            <label for="">Ventas</label>
+            <input name=ventas readonly value="=+Ingresos F">
+            <label for="">costos</label>
+            <input name=ventas readonly value="=+Egresos F">
+            <label for="">margen</label>
+            <input name=ventas readonly value="= Ventas - Costos">
+            <label for="">%</label>
+            <input name=ventas readonly value="= Marge / Ventas">
+            <br>
+        </form>
+    <h3>Resumen financiero</h3>
+
+    <form action="">
+        <label for="">Titulo</label>
+        <input name=titulo readonly value="mes inicial">
+        <label for="">Ingresos</label>
+        <input name=ingreso1  value="">
+        <input name=ingreso2  value="">
+        <button>+</button><br><br>
+        <label for="">Egresos</label>
+        <input name=egresos readonly value="((=+Costos Directos) + (=+ Costos Administrativos)) X mes">
+        <label for="">Total</label>
+        <input name=ventas readonly value="Ingresos + Egresos"><br><br>
+        <button>Eliminar</button>
+    </form><br>
+    <form action="">
+        <label for="">Titulo</label>
+        <input name=titulo readonly value="mes siguiente">
+        <label for="">Ingresos</label>
+        <input name=ingreso1  value="">
+        <input name=ingreso2  value="">
+        <button>+</button><br><br>
+        <label for="">Egresos</label>
+        <input name=egresos readonly value="((=+Costos Directos) + (=+ Costos Administrativos)) X mes">
+        <label for="">Total</label>
+        <input name=ventas readonly value="Ingresos + Egresos"><br><br>
+        <button>Eliminar</button>
+    </form><br>
+        <form action="">
+            <label for="">Aumulado</label>
+           <input name=ventas readonly value="total + total mes anterior">
+        </form><br>
+    <button>Agregar</button>
+    <br><br>
+    <h3>Estado de Resultados</h3>
+        
+
+    <script src="../public/assets/js/newBudget.js"></script>
+</body>
+</html>
