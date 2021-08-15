@@ -2,7 +2,7 @@
 const fetch = require('node-fetch');
 
 //routes for views
-module.exports = async (app) => {
+/*module.exports = async (app) => {
 
     app.get('/', async (req, res) =>{
         try {
@@ -21,6 +21,6 @@ module.exports = async (app) => {
         }
      });
 
-}
+}*/
 
 

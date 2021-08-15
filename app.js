@@ -5,8 +5,15 @@ const cors = require('cors');
 require('dotenv').config();
 const db = require('./db/db.connection');
 const Budget = require('./db/db.budget.model');
+const Period = require('./db/db.period.model');
+const Concept = require('./db/db.concept.model');
+const Income = require('./db/db.income.model');
+const DirectCost = require('./db/db.directCost.model');
+const AdminExpenses = require('./db/db.adminexpenses.model');
+const Resources = require('./db/db.resources.model');
 const viewsRutes = require('./app/view/view.rutes');
 const budgets =  require ('./app/view/view.budget');
+
 
 /**Global middlewares config */
 app.use(cors());
@@ -20,6 +27,13 @@ app.set('views', __dirname + '/views');
 async function startServer(){
     try {
         await Budget.sync({ alter: true });
+        await Period.sync({ alter: true });
+        await Concept.sync({ alter: true });
+        await AdminExpenses.sync({ alter: true });
+        await Income.sync({ alter: true });
+        await DirectCost.sync({ alter: true });
+        await Resources.sync({ alter: true });
+        
         await db.authenticate();//connect to data base
         console.log('Conected to Database'); 
         app.listen(process.env.PORT, process.env.HOST, () =>{   //connect to server
@@ -33,5 +47,5 @@ async function startServer(){
 startServer();
 
 /** Start API routes */
-viewsRutes(app);
+//viewsRutes(app);
 budgets(app);
