@@ -11,8 +11,17 @@ const Income = require('./db/db.income.model');
 const DirectCost = require('./db/db.directCost.model');
 const AdminExpenses = require('./db/db.adminexpenses.model');
 const Resources = require('./db/db.resources.model');
-const viewsRutes = require('./app/view/view.rutes');
-const budgets =  require ('./app/view/view.budget');
+const Users =  require('./db/db.users.model')
+
+const viewsRutes = require('./routes/routes');
+const viewBudgets =  require ('./app/view/view.budget');
+const viewUsers =  require ('./app/view/view.users');
+
+const bodyParser = require('body-parser');
+
+//Utilice middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 
 /**Global middlewares config */
@@ -26,6 +35,7 @@ app.set('views', __dirname + '/views');
 /*Start server */
 async function startServer(){
     try {
+        await Users.sync({ alter: true });
         await Budget.sync({ alter: true });
         await Period.sync({ alter: true });
         await Concept.sync({ alter: true });
@@ -33,6 +43,7 @@ async function startServer(){
         await Income.sync({ alter: true });
         await DirectCost.sync({ alter: true });
         await Resources.sync({ alter: true });
+       
         
         await db.authenticate();//connect to data base
         console.log('Conected to Database'); 
@@ -45,7 +56,7 @@ async function startServer(){
 }
 
 startServer();
-
 /** Start API routes */
-//viewsRutes(app);
-budgets(app);
+viewsRutes(app);
+viewBudgets(app);
+viewUsers(app);
