@@ -23,10 +23,10 @@ const Period = sequelize.define('period', {
     timestamps: false
 });
 
-Period.hasMany(Resources, {foreignKey: 'id_date',constraints: true});
-Period.hasMany(DirectCost, {foreignKey: 'id_date',constraints: true});
-Period.hasMany(AdminExpenses, {foreignKey: 'id_date',constraints: true});
-Period.hasMany(Income, {foreignKey: 'id_date',constraints: true});
+Period.hasMany(Resources, {foreignKey: 'id_date',constraints: true,onDelete: 'cascade',onUpdate: 'cascade'});
+Period.hasMany(DirectCost, {foreignKey: 'id_date',constraints: true,onDelete: 'cascade',onUpdate: 'cascade'});
+Period.hasMany(AdminExpenses, {foreignKey: 'id_date',constraints: true,onDelete: 'cascade',onUpdate: 'cascade'});
+Period.hasMany(Income, {foreignKey: 'id_date',constraints: true,onDelete: 'cascade',onUpdate: 'cascade'});
 
 
 module.exports = Period

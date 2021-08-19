@@ -34,7 +34,6 @@ module.exports = async (app)=>{
 
 	 app.post('/user/pass', middlewares.validateToken,async (req, res) =>{
         try {
-			console.log(req.body.password);
 			let ok = await controlUsers.updatePassword(req.body);
 			if(ok){
 				res.status(200).json('password changed !');
@@ -43,4 +42,14 @@ module.exports = async (app)=>{
             res.status(500).json('error in the request views user')
         }
      });
+
+	 app.post('/user',async (req, res) =>{
+        try {
+			let user = await controlUsers.createUser(req.body);
+			res.status(200).json(user);
+        } catch (error) {
+            res.status(500).json('error in the request views user')
+        }
+     });
+
 }

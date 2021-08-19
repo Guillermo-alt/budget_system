@@ -24,5 +24,5 @@ const Budgets = sequelize.define('budgets', {
     timestamps: true //date
 });
 
-Budgets.hasMany(Period, { foreignKey: 'id_budget', constraints: true })
+Budgets.hasMany(Period, { foreignKey: 'id_budget', constraints: true,onDelete: 'cascade',onUpdate: 'cascade' })
 module.exports = Budgets

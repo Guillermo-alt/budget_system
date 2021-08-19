@@ -33,7 +33,7 @@ module.exports.createBudget = async (budget)=>{
             }
             for (let i in budget.periods[p].resources) {
               
-                    let resour = await Resources.create({ cost: budget.periods[p].resources[i].cost,percentage: budget.periods[p].resources[i].percentage , id_date:periodsC.id_date }); 
+                    let resour = await Resources.create({role: budget.periods[p].resources[i].role  ,cost: budget.periods[p].resources[i].cost,percentage: budget.periods[p].resources[i].percentage , id_date:periodsC.id_date }); 
       
             }
         }
@@ -81,3 +81,47 @@ module.exports.deleteBudget = async (param) => {
 		throw error;
 	}
 };
+
+
+//create concept
+module.exports.createConcept = async (concept)=> { 
+    try{
+        let result = await Concept.create({
+            name:concept.name
+		})
+        return result;
+
+    }catch(err){
+        console.log(err)
+        throw new Error (err+ 'problem in product models')
+    }
+}
+//get all concepts
+module.exports.getAllConcepts = async ()=> { 
+    try{
+        let result = await Concept.findAll()
+        return result;
+
+    }catch(err){
+        console.log(err)
+        throw new Error (err+ 'problem in product models')
+    }
+}
+//obtenemos resultados detallado de un presupuesto
+module.exports.getBudgetDetails = async (budget)=> { 
+
+    try{
+        let result = await Budget.findAll({
+			include: { model: Period, as: 'periods',include:[{model: Income, as: 'incomes'},
+															 {model: AdminExpenses, as: 'adminExpenses'},
+															 {model: DirectCost, as: 'direct_costs'},
+															 {model: Resources, as: 'resources'}], where: {
+				id_budget:budget
+			  } }
+		  })
+		return result;
+    }catch(err){
+        console.log(err)
+        throw new Error (err+ 'problem in product models')
+    }
+}

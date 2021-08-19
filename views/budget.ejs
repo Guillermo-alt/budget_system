@@ -9,7 +9,11 @@
         <a href="#three" data-tabtop="true">Recursos</a>
         <a href="#four" data-tabtop="true">Estado de resultados</a>
         <div id="one" data-tabbox="true" data-active="true">
-            <p>Proyecto: <input id="mesinicial" type="text"> Mes incial: <input type="month" name="mesnacimiento"> Version: <input type="text">  </p>
+            <p>Proyecto: <input id="" type="text"> 
+                Mes inicial: <input id="monthInit" type="number" min="1" value="1" max="12">
+                Año: <input id="ageInit" type="number" min="1990" value="2021" max="2050">
+                Version: <input type="text"> 
+                <button id="initBud" class="btn btn-primary col-1 mx-4" >Iniciar</button> </p>
             <h3>Resumen financiero</h3>
             <div class="row">
                 <div class="col-6">
@@ -31,8 +35,8 @@
                 </table>
                 </div>
                 <div class="col-4 offset-2">
-                    <button class="btn btn-primary col-4 mx-4" >Guardar</button>
-                    <button class="btn btn-primary col-4">Guardar</button>
+                    <button id="save"  class="btn btn-primary col-4 mx-4" >Guardar</button>
+                    <button class="btn btn-primary col-4">Cancelar</button>
                 </div>
             </div>
             <div class="row">
@@ -40,20 +44,24 @@
                     <h3>Flujo de ingresos</h3>
                     <table class="table table-bordered border-primary">
                         <tbody>
-                        <tr><th>Titulos</th>
-                            <th>Mes</th> 
-                        <tr><th>Ingresos</th>
-                            <td>NULL </td>  
-                        </tr>
-                        <tr><th>Egresos</th>
-                            <td>NULL </td>  
-                        </tr>
-                        <tr><th>Total</th>
-                            <td>NULL </td>
-                        </tr>
-                        <tr><th></th>
-                            <td> <button class="btn btn-danger"> Eliminar</button></td>
-                        </tr>
+                              <tr id="FH">
+                                <th>Titulo</th> <!--col-->
+                              </tr>
+                              <tr id="FI">
+                                <td>Ingresos</td> <!-- fila - col-->
+                              </tr>
+                              <tr id="FE">
+                                <td>Egresos</td>   <!-- fila - col-->
+                              </tr>
+                              <tr id="FT">
+                                <td>Total</td> <!-- fila - col-->
+                              </tr>
+                              <tr id="FA">
+                                <td>Acumulado</td> <!-- fila - col-->
+                              </tr>
+                              <tr id="FB">
+                                <td></td> <!-- fila - col-->
+                              </tr>
                         </tbody>
                     </table>
                 </div>
@@ -66,29 +74,29 @@
                     </table>
                 </div>
                 <div class="col-4">
-                    <button class="btn btn-success">Agregar</button>
+                    <button id="addcol"  disabled="true" class="btn btn-success">Agregar</button>
                 </div>
             </div>
             <div class="row">
                 <div>
-                    <h3>Resumen financiero</h3>
+                    <h3>Estado de resultados</h3>
                     <table class="table table-bordered border-primary">
                         <tbody>
-                        <tr><th>Titulos</th>
-                            <th>mes</th> 
-
-                        <tr><th>Ventas</th>
-                            <td>NULL </td>  
-                        </tr>
-                        <tr><th>Costos</th>
-                            <td>NULL </td>  
-                        </tr>
-                        <tr><th>Margen</th>
-                            <td>NULL </td>
-                        </tr>
-                        <tr><th>Saldo final</th>
-                            <td>NULL </td>
-                        </tr>
+                              <tr id="EH">
+                                <th>Titulos</th> <!--col-->
+                              </tr>
+                              <tr id="EV">
+                                <td>Venta</td> <!-- fila - col-->
+                              </tr>
+                              <tr id="EC">
+                                <td>Costos</td>   <!-- fila - col-->
+                              </tr>
+                              <tr id="EM">
+                                <td>Margen</td> <!-- fila - col-->
+                              </tr>
+                              <tr id="ES">
+                                <td>Saldo final</td> <!-- fila - col-->
+                              </tr>
                         </tbody>
                     </table>
                 </div>
@@ -102,8 +110,30 @@
             </div>
         </div>
         <div id="two" data-tabbox="true">
-          <h3>Ingresos</h3>
-            <div></div>
+            <div class="row">
+                <div>
+                    <h3>Ingresos</h3> <h5>capture ingresos por mes</h5>
+                    <table class="table table-bordered table-dark table-hover">
+                        <tbody id="T_ING" >
+                              <tr id="IM"> <!--col agrega mes-->
+                                <th>Concepto</th> <!--col agrega mes-->
+                              </tr>
+                        </tbody>   
+                    </table>
+                </div>
+                <div class="col-4">
+                    <button id="addincome"  disabled="true" class="btn btn-success">Agregar</button>
+                </div>
+                <div class="col-4">
+                    <table class="table table-bordered border-primary ">
+                        <tr><th>Total</th>
+                            <td>NULL </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            
         </div>
         <div id="three" data-tabbox="true">
             <h3>Recursos</h3>

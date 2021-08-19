@@ -64,3 +64,28 @@ module.exports.updatePassword = async (user) => {
 		throw error;
 	}
 }
+
+//create new user
+module.exports.createUser = async (user) => {
+	try {
+		let User = await Users.create({
+			names:user.names,
+			last_names:user.last_names,
+			email:user.email,
+			userName:user.userName,
+			password:user.password,
+			phone_number:user.phone_number,
+			active:user.active,
+			role:user.role
+		});
+       
+		if (User != null) {
+			return User;
+			
+		}
+		throw new Error('User no longer exists or is inactive');
+	} catch (error) {
+        console.log(error)
+		throw error;
+	}
+}

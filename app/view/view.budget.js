@@ -36,5 +36,37 @@ module.exports = async (app)=>{
         }
      });
 
+     app.post('/concept', middlewares.validateToken,async (req, res) =>{
+        try {
+			let ok = await constrolBugets.createConcept(req.body);
+			if(ok){
+				res.status(200).json(ok);
+			}
+        } catch (error) { 
+            res.status(500).json('error in the request views budgets')
+        }
+     });
+
+     app.get('/concepts', middlewares.validateToken,async (req, res) =>{
+        try {
+			let ok = await constrolBugets.getAllConcepts();
+			if(ok){
+				res.status(200).json(ok);
+			}
+        } catch (error) { 
+            res.status(500).json('error in the request views budgets')
+        }
+     });
+
+     app.get('/budget/detail/:id_budget', middlewares.validateToken,async (req, res) =>{
+        try {
+			let ok = await constrolBugets.getBudgetDetails(req.params.id_budget);
+			if(ok){
+				res.status(200).json(ok);
+			}
+        } catch (error) { 
+            res.status(500).json('error in the request views budgets')
+        }
+     });
 
 }

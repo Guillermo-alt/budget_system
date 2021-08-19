@@ -7,6 +7,10 @@ const Resources = sequelize.define('resources', {
         primaryKey: true,
         autoIncrement: true 
     },
+    role: {
+        type: DataTypes.STRING(50),
+        allowNull: false
+    },
     cost: {
         type: DataTypes.STRING(15),
         allowNull: false

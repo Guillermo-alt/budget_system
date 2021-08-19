@@ -28,3 +28,31 @@ module.exports.deleteBudget = async (param) =>{
         throw new Error ('budgets controller error')      
     }
 }
+
+//create new concept
+module.exports.createConcept = async (concept) =>{
+    try {
+        const result = await modelBudgets.createConcept(concept);
+        return result;
+    } catch (error) {
+        throw new Error ('budgets controller error')      
+    }
+}
+//get all concepts
+module.exports.getAllConcepts = async () =>{
+    try {
+        const result = await modelBudgets.getAllConcepts();
+        return result;
+    } catch (error) {
+        throw new Error ('budgets controller error')      
+    }
+}
+//obtenemos resultados detallado de un presupuesto
+module.exports.getBudgetDetails = async (budget) =>{
+    try {
+        const result = await modelBudgets.getBudgetDetails(budget);
+        return result;
+    } catch (error) {
+        throw new Error ('budgets controller error')      
+    }
+}

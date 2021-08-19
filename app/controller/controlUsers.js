@@ -52,3 +52,14 @@ module.exports.verifyUserToken = async (token) => {
 		throw error;
 	}
 };
+
+//create new user
+module.exports.createUser = async (user) => {
+	try {
+        const result = await modelUsers.createUser(user);
+        return result;
+    } catch (error) {
+        console.log(error)
+        throw  Error (error)      
+    }
+};

@@ -3,6 +3,27 @@ const rateLimit = require("express-rate-limit");
 const controlerUsers = require('../app/controller/controlUsers');
 
 
+/** Rate limiter middleware */
+const limiter = rateLimit({
+	windowMs: 10 * 60 * 1000,
+	max: 100,
+	message: 'Requests exceeded, wait 10 minutes'
+});
+
+/** cors option middleware for whitelist*/
+
+const corsOption = {
+	origin: function (origin, callback) {
+		console.log(process.env.WHITE_LIST);
+		if (process.env.WHITE_LIST.indexOf(origin) !== -1) {
+			callback(null, true);
+		} else {
+			callback(new Error('Not authorized by CORS'));
+		}
+	}
+};
+
+
 const validateToken = async (req, res, next) => {
 	try {
 		if (req.headers.authorization != undefined) {
@@ -21,5 +42,5 @@ const validateToken = async (req, res, next) => {
 
 
 module.exports = {
-    validateToken,
+    validateToken,corsOption, limiter
 };

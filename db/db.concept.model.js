@@ -18,8 +18,8 @@ const Concept = sequelize.define('concept', {
     timestamps: false //date
 });
 
-Concept.hasMany(AdminExpenses, {foreignKey: 'id_concept',constraints: true});
-Concept.hasMany(Income, {foreignKey: 'id_concept',constraints: true});
-Concept.hasMany(DirectCots, {foreignKey: 'id_concept',constraints: true});
+Concept.hasMany(AdminExpenses, {foreignKey: 'id_concept',constraints: true,onDelete: 'cascade',onUpdate: 'cascade'});
+Concept.hasMany(Income, {foreignKey: 'id_concept',constraints: true,onDelete: 'cascade',onUpdate: 'cascade'});
+Concept.hasMany(DirectCots, {foreignKey: 'id_concept',constraints: true,onDelete: 'cascade',onUpdate: 'cascade'});
 
 module.exports = Concept
