@@ -6,7 +6,7 @@ module.exports = async (app)=>{
 
 
     //get new budget
-    app.post('/user/login', /*middlewares.validateLoginInfo*/ async (req, res) => {
+    app.post('/user/login', middlewares.validateLoginInfo, /*middlewares.corsOption,*/async (req, res) => {
 		let user = req.body;
 		try {
             console.log(req.body)
@@ -23,7 +23,7 @@ module.exports = async (app)=>{
 	});
 
 	//get user data
-	app.get('/user', middlewares.validateToken,async (req, res) =>{
+	app.get('/user', middlewares.validateToken,/*middlewares.corsOption,*/async (req, res) =>{
         try {
 			let user = await controlUsers.retrieveUser(req.params.user);
 			res.status(200).json(user);
@@ -32,7 +32,7 @@ module.exports = async (app)=>{
         }
      });
 
-	 app.post('/user/pass', middlewares.validateToken,async (req, res) =>{
+	 app.post('/user/pass', middlewares.validateToken,middlewares.chamgePassInfor,/*middlewares.corsOption,*/async (req, res) =>{
         try {
 			let ok = await controlUsers.updatePassword(req.body);
 			if(ok){
@@ -42,8 +42,8 @@ module.exports = async (app)=>{
             res.status(500).json('error in the request views user')
         }
      });
-
-	 app.post('/user',async (req, res) =>{
+	//register-create user
+	 app.post('/user',middlewares.validateRegisterInfo ,/*middlewares.corsOption,*/async (req, res) =>{
         try {
 			let user = await controlUsers.createUser(req.body);
 			res.status(200).json(user);
@@ -51,5 +51,4 @@ module.exports = async (app)=>{
             res.status(500).json('error in the request views user')
         }
      });
-
 }

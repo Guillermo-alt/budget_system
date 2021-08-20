@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 require('dotenv').config();
+const middlewares = require('./middlewares/middlewares');
 const db = require('./db/db.connection');
 const Budget = require('./db/db.budget.model');
 const Period = require('./db/db.period.model');
@@ -27,6 +28,7 @@ app.use(bodyParser.json());
 /**Global middlewares config */
 app.use(cors());
 app.use(express.json());
+app.use(middlewares.limiter);
 
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');

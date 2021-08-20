@@ -15,7 +15,7 @@ module.exports = async (app)=>{
         }
      });
      //get quotes for each user
-     app.get('/budget/:id_user', middlewares.validateToken,async (req, res) =>{
+     app.get('/budget/:id_user', middlewares.validateToken,/*middlewares.corsOption,*/async (req, res) =>{
         let id_user = req.params.id_user
         try {
             let result = await constrolBugets.retrieveBudget(id_user);
@@ -25,7 +25,7 @@ module.exports = async (app)=>{
         }
      });
 
-     app.post('/delete', middlewares.validateToken,async (req, res) =>{
+     app.post('/delete', middlewares.validateToken,/*middlewares.corsOption,*/async (req, res) =>{
         try {
             let ok = await constrolBugets.deleteBudget(req.body);
 			if(ok){
@@ -36,7 +36,7 @@ module.exports = async (app)=>{
         }
      });
 
-     app.post('/concept', middlewares.validateToken,async (req, res) =>{
+     app.post('/concept', middlewares.validateToken,/*middlewares.corsOption,*/async (req, res) =>{
         try {
 			let ok = await constrolBugets.createConcept(req.body);
 			if(ok){
@@ -47,7 +47,7 @@ module.exports = async (app)=>{
         }
      });
 
-     app.get('/concepts', middlewares.validateToken,async (req, res) =>{
+     app.get('/concepts', middlewares.validateToken,/*middlewares.corsOption,*/async (req, res) =>{
         try {
 			let ok = await constrolBugets.getAllConcepts();
 			if(ok){
@@ -58,7 +58,7 @@ module.exports = async (app)=>{
         }
      });
 
-     app.get('/budget/detail/:id_budget', middlewares.validateToken,async (req, res) =>{
+     app.get('/budget/detail/:id_budget', middlewares.validateToken,/*middlewares.corsOption,*/async (req, res) =>{
         try {
 			let ok = await constrolBugets.getBudgetDetails(req.params.id_budget);
 			if(ok){
