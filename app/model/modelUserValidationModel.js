@@ -23,7 +23,7 @@ module.exports = {
             {
             id_user:Joi.string().max(2).min(1).required(),
             password: Joi.string().regex(/^[a-zA-Z0-9]{4,16}$/).min(4).required(),
-        }).with('userName', 'password')
+        }).with('id_user', 'password')
 
         
 };
