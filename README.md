@@ -1,5 +1,5 @@
 # Sistema de Presupuestos Tecla
-Author: Guillermo Ortega
+Author: Guillermo Ortega Vargas
 
 # Usage
 * Clone Repo ``
