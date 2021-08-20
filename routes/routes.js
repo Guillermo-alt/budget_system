@@ -12,9 +12,17 @@ module.exports = async (app) => {
         }
      });
 
-     app.get('/editbudget', async (req, res) =>{
+     app.get('/newBudget', async (req, res) =>{
         try {
              res.render("budget")
+        } catch (error) {
+            res.status(500).json('error in the request rutes budgets')
+        }
+     });
+
+     app.get('/editBudget', async (req, res) =>{
+        try {
+             res.render("editBudget")
         } catch (error) {
             res.status(500).json('error in the request rutes budgets')
         }

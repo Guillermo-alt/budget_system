@@ -6,7 +6,7 @@ module.exports = async (app)=>{
 
 
     //create new budget
-    app.post('/budget', async (req, res) =>{
+    app.post('/budget',middlewares.validateToken, async (req, res) =>{
         try {
             let result = await constrolBugets.createBudget(req.body)
             res.json(result);

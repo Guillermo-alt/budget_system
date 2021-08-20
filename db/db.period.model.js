@@ -11,10 +11,14 @@ const Period = sequelize.define('period', {
         primaryKey: true,
         autoIncrement: true 
     },
-    date: {
+    month: {
         type: DataTypes.STRING(15),
         allowNull: false
     }, 
+    age: {
+        type: DataTypes.STRING(6),
+        allowNull: false
+    },
     income: {
         type: DataTypes.STRING(15),
         allowNull: false

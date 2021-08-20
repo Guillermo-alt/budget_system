@@ -1,16 +1,15 @@
----
 #https://app.swaggerhub.com/apis-docs/Guillermo-alt/budget-system/1.0
+---
 openapi: 3.0.0
 info:
-  title: budget-System
+  title: budgetSystem
   contact:
     name: Guillermo Ortega Vargas
     url: https://github.com/Guillermo-alt
-    email: guillermo76ov@hotmail.com
+    email: Guillermo76ov@hotmail.com
   version: "1.0"
 servers:
 - url: http://127.0.0.1:3000
-- url: http://localhost:3000
 security:
 - httpBearer: []
 tags:
@@ -33,116 +32,59 @@ paths:
               version: 1.0.0
               id_user: "1"
               periods:
-              - date: 2021-02
+              - age: "2021"
+                month: Febrero
                 income: "2500"
                 incomes:
-                - value: "3500"
+                - value: "5845"
                   id_concept: "2"
-                - value: "3500"
-                  id_concept: "2"
+                - value: "547"
+                  id_concept: "1"
                 direct_cost:
-                - value: "3500"
-                  id_concept: "2"
-                - value: "3500"
+                - value: "5789"
+                  id_concept: "1"
+                - value: "2514"
                   id_concept: "2"
                 admin_expenses:
-                - value: "5660"
+                - value: "547"
                   id_concept: "2"
-                - value: "5660"
-                  id_concept: "2"
+                - value: "5748"
+                  id_concept: "3"
                 resources:
                 - role: rol 1
-                  cost: "5660"
+                  cost: "125"
                   percentage: "50"
                 - role: rol 2
-                  cost: "5660"
+                  cost: "265"
                   percentage: "10"
-              - date: 2021-02
-                income: "2800"
+              - age: "2021"
+                month: Marzo
+                income: "5784"
                 incomes:
-                - value: "5660"
-                  id_concept: "2"
-                - value: "5660"
-                  id_concept: "2"
+                - value: "5898"
+                  id_concept: "3"
+                - value: "9874"
+                  id_concept: "3"
                 direct_cost:
-                - value: "5895"
+                - value: "2564"
                   id_concept: "2"
-                - value: "5895"
-                  id_concept: "2"
+                - value: "2005"
+                  id_concept: "1"
                 admin_expenses:
                 - value: "5895"
-                  id_concept: "2"
+                  id_concept: "1"
                 - value: "5895"
                   id_concept: "2"
                 resources:
                 - role: rol 1
-                  cost: "5660"
+                  cost: "1000"
                   percentage: "50"
-                - role: rol 2
-                  cost: "5660"
-                  percentage: "10"
+                - role: rol 3
+                  cost: "1800"
+                  percentage: "50"
         required: true
       responses:
-        "200":
-          description: OK
-          headers:
-            X-Powered-By:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: Express
-            Access-Control-Allow-Origin:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: '*'
-            Content-Length:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: "163"
-            ETag:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: W/"a3-Brwqw94d26XjXqy0TkiH6Nx06No"
-            Date:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: Thu, 19 Aug 2021 15:07:11 GMT
-            Connection:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: keep-alive
-            Keep-Alive:
-              style: simple
-              explode: false
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: timeout=5
-          content: {}
+        "200": {}
       deprecated: false
   /user/login:
     post:
@@ -157,8 +99,8 @@ paths:
             schema:
               $ref: '#/components/schemas/userloginrequest'
             example:
-              email: guill76ov@gmail.com
-              password: pass
+              email: Eduardo@gmail.com
+              password: Lalo254
               role: user
         required: true
       responses:
@@ -309,8 +251,8 @@ paths:
                 phone_number: "5558109026"
                 active: "1"
                 role: user
-                createdAt: 2021-08-19T02:56:44.375Z
-                updatedAt: 2021-08-19T02:56:44.375Z
+                createdAt: 2021-08-19T02:56:44.375+0000
+                updatedAt: 2021-08-19T02:56:44.375+0000
       deprecated: false
     post:
       tags:
@@ -324,11 +266,11 @@ paths:
             schema:
               $ref: '#/components/schemas/createuserrequest'
             example:
-              names: Alberto
-              last_names: Ortega Vargas
-              userName: alber11
-              email: betobetorias@gmail.com
-              password: beto1458
+              names: Eduardo
+              last_names: Maturino
+              userName: Lalo78
+              email: Eduardo@gmail.com
+              password: Lalo254
               phone_number: "5558109026"
               active: "1"
               role: user
@@ -407,8 +349,8 @@ paths:
                 phone_number: "5558109026"
                 active: "1"
                 role: user
-                updatedAt: 2021-08-19T18:23:09.473Z
-                createdAt: 2021-08-19T18:23:09.473Z
+                updatedAt: 2021-08-19T18:23:09.473+0000
+                createdAt: 2021-08-19T18:23:09.473+0000
       deprecated: false
   /budget/1:
     get:
@@ -486,22 +428,22 @@ paths:
                   proyect: Tienda online
                   version: 1.0.0
                   active: true
-                  createdAt: 2021-08-19T03:03:44.264Z
-                  updatedAt: 2021-08-19T03:03:44.264Z
+                  createdAt: 2021-08-19T03:03:44.264+0000
+                  updatedAt: 2021-08-19T03:03:44.264+0000
                   id_user: 1
                 - id_budget: 2
                   proyect: Tienda online
                   version: 1.0.0
                   active: true
-                  createdAt: 2021-08-19T03:04:13.811Z
-                  updatedAt: 2021-08-19T03:04:13.811Z
+                  createdAt: 2021-08-19T03:04:13.811+0000
+                  updatedAt: 2021-08-19T03:04:13.811+0000
                   id_user: 1
                 - id_budget: 3
                   proyect: Tienda online
                   version: 1.0.0
                   active: true
-                  createdAt: 2021-08-19T15:07:11.584Z
-                  updatedAt: 2021-08-19T15:07:11.584Z
+                  createdAt: 2021-08-19T15:07:11.584+0000
+                  updatedAt: 2021-08-19T15:07:11.584+0000
                   id_user: 1
                 items:
                   $ref: '#/components/schemas/getbudgetsuser'
@@ -510,22 +452,22 @@ paths:
                 proyect: Tienda online
                 version: 1.0.0
                 active: true
-                createdAt: 2021-08-19T03:03:44.264Z
-                updatedAt: 2021-08-19T03:03:44.264Z
+                createdAt: 2021-08-19T03:03:44.264+0000
+                updatedAt: 2021-08-19T03:03:44.264+0000
                 id_user: 1
               - id_budget: 2
                 proyect: Tienda online
                 version: 1.0.0
                 active: true
-                createdAt: 2021-08-19T03:04:13.811Z
-                updatedAt: 2021-08-19T03:04:13.811Z
+                createdAt: 2021-08-19T03:04:13.811+0000
+                updatedAt: 2021-08-19T03:04:13.811+0000
                 id_user: 1
               - id_budget: 3
                 proyect: Tienda online
                 version: 1.0.0
                 active: true
-                createdAt: 2021-08-19T15:07:11.584Z
-                updatedAt: 2021-08-19T15:07:11.584Z
+                createdAt: 2021-08-19T15:07:11.584+0000
+                updatedAt: 2021-08-19T15:07:11.584+0000
                 id_user: 1
       deprecated: false
   /user/pass:
@@ -865,7 +807,7 @@ paths:
               - id_concept: 3
                 name: Mobiliario
       deprecated: false
-  /budget/detail/2:
+  /budget/detail/19:
     get:
       tags:
       - Misc
@@ -941,8 +883,8 @@ paths:
                   proyect: Tienda online
                   version: 1.0.0
                   active: true
-                  createdAt: 2021-08-19T03:04:13.811Z
-                  updatedAt: 2021-08-19T03:04:13.811Z
+                  createdAt: 2021-08-19T03:04:13.811+0000
+                  updatedAt: 2021-08-19T03:04:13.811+0000
                   id_user: 1
                   periods:
                   - id_date: 2
@@ -1036,8 +978,8 @@ paths:
                 proyect: Tienda online
                 version: 1.0.0
                 active: true
-                createdAt: 2021-08-19T03:04:13.811Z
-                updatedAt: 2021-08-19T03:04:13.811Z
+                createdAt: 2021-08-19T03:04:13.811+0000
+                updatedAt: 2021-08-19T03:04:13.811+0000
                 id_user: 1
                 periods:
                 - id_date: 2
@@ -1151,66 +1093,71 @@ components:
         version: 1.0.0
         id_user: "1"
         periods:
-        - date: 2021-02
+        - age: "2021"
+          month: Febrero
           income: "2500"
           incomes:
-          - value: "3500"
+          - value: "5845"
             id_concept: "2"
-          - value: "3500"
-            id_concept: "2"
+          - value: "547"
+            id_concept: "1"
           direct_cost:
-          - value: "3500"
-            id_concept: "2"
-          - value: "3500"
+          - value: "5789"
+            id_concept: "1"
+          - value: "2514"
             id_concept: "2"
           admin_expenses:
-          - value: "5660"
+          - value: "547"
             id_concept: "2"
-          - value: "5660"
-            id_concept: "2"
+          - value: "5748"
+            id_concept: "3"
           resources:
           - role: rol 1
-            cost: "5660"
+            cost: "125"
             percentage: "50"
           - role: rol 2
-            cost: "5660"
+            cost: "265"
             percentage: "10"
-        - date: 2021-02
-          income: "2800"
+        - age: "2021"
+          month: Marzo
+          income: "5784"
           incomes:
-          - value: "5660"
-            id_concept: "2"
-          - value: "5660"
-            id_concept: "2"
+          - value: "5898"
+            id_concept: "3"
+          - value: "9874"
+            id_concept: "3"
           direct_cost:
-          - value: "5895"
+          - value: "2564"
             id_concept: "2"
-          - value: "5895"
-            id_concept: "2"
+          - value: "2005"
+            id_concept: "1"
           admin_expenses:
           - value: "5895"
-            id_concept: "2"
+            id_concept: "1"
           - value: "5895"
             id_concept: "2"
           resources:
           - role: rol 1
-            cost: "5660"
+            cost: "1000"
             percentage: "50"
-          - role: rol 2
-            cost: "5660"
-            percentage: "10"
+          - role: rol 3
+            cost: "1800"
+            percentage: "50"
     Period:
       title: Period
       required:
       - admin_expenses
-      - date
+      - age
       - direct_cost
       - income
       - incomes
+      - month
       - resources
       type: object
       properties:
-        date:
+        age:
+          type: string
+        month:
           type: string
         income:
           type: string
@@ -1231,29 +1178,30 @@ components:
           items:
             $ref: '#/components/schemas/Resource'
       example:
-        date: 2021-02
+        age: "2021"
+        month: Febrero
         income: "2500"
         incomes:
-        - value: "3500"
+        - value: "5845"
           id_concept: "2"
-        - value: "3500"
-          id_concept: "2"
+        - value: "547"
+          id_concept: "1"
         direct_cost:
-        - value: "3500"
-          id_concept: "2"
-        - value: "3500"
+        - value: "5789"
+          id_concept: "1"
+        - value: "2514"
           id_concept: "2"
         admin_expenses:
-        - value: "5660"
+        - value: "547"
           id_concept: "2"
-        - value: "5660"
-          id_concept: "2"
+        - value: "5748"
+          id_concept: "3"
         resources:
         - role: rol 1
-          cost: "5660"
+          cost: "125"
           percentage: "50"
         - role: rol 2
-          cost: "5660"
+          cost: "265"
           percentage: "10"
     Income:
       title: Income
@@ -1267,7 +1215,7 @@ components:
         id_concept:
           type: string
       example:
-        value: "3500"
+        value: "5845"
         id_concept: "2"
     DirectCost:
       title: DirectCost
@@ -1281,8 +1229,8 @@ components:
         id_concept:
           type: string
       example:
-        value: "3500"
-        id_concept: "2"
+        value: "5789"
+        id_concept: "1"
     AdminExpense:
       title: AdminExpense
       required:
@@ -1295,7 +1243,7 @@ components:
         id_concept:
           type: string
       example:
-        value: "5660"
+        value: "547"
         id_concept: "2"
     Resource:
       title: Resource
@@ -1313,7 +1261,7 @@ components:
           type: string
       example:
         role: rol 1
-        cost: "5660"
+        cost: "125"
         percentage: "50"
     userloginrequest:
       title: userloginrequest
@@ -1330,8 +1278,8 @@ components:
         role:
           type: string
       example:
-        email: guill76ov@gmail.com
-        password: pass
+        email: Eduardo@gmail.com
+        password: Lalo254
         role: user
     getuserdata:
       title: getuserdata
@@ -1382,8 +1330,8 @@ components:
         phone_number: "5558109026"
         active: "1"
         role: user
-        createdAt: 2021-08-19T02:56:44.375Z
-        updatedAt: 2021-08-19T02:56:44.375Z
+        createdAt: 2021-08-19T02:56:44.375+0000
+        updatedAt: 2021-08-19T02:56:44.375+0000
     getbudgetsuser:
       title: getbudgetsuser
       required:
@@ -1417,8 +1365,8 @@ components:
         proyect: Tienda online
         version: 1.0.0
         active: true
-        createdAt: 2021-08-19T03:03:44.264Z
-        updatedAt: 2021-08-19T03:03:44.264Z
+        createdAt: 2021-08-19T03:03:44.264+0000
+        updatedAt: 2021-08-19T03:03:44.264+0000
         id_user: 1
     changepassuserrequest:
       title: changepassuserrequest
@@ -1518,11 +1466,11 @@ components:
         role:
           type: string
       example:
-        names: Alberto
-        last_names: Ortega Vargas
-        userName: alber11
-        email: betobetorias@gmail.com
-        password: beto1458
+        names: Eduardo
+        last_names: Maturino
+        userName: Lalo78
+        email: Eduardo@gmail.com
+        password: Lalo254
         phone_number: "5558109026"
         active: "1"
         role: user
@@ -1575,8 +1523,8 @@ components:
         phone_number: "5558109026"
         active: "1"
         role: user
-        updatedAt: 2021-08-19T18:23:09.473Z
-        createdAt: 2021-08-19T18:23:09.473Z
+        updatedAt: 2021-08-19T18:23:09.473+0000
+        createdAt: 2021-08-19T18:23:09.473+0000
     getBudgetDetail:
       title: getBudgetDetail
       required:
@@ -1615,8 +1563,8 @@ components:
         proyect: Tienda online
         version: 1.0.0
         active: true
-        createdAt: 2021-08-19T03:04:13.811Z
-        updatedAt: 2021-08-19T03:04:13.811Z
+        createdAt: 2021-08-19T03:04:13.811+0000
+        updatedAt: 2021-08-19T03:04:13.811+0000
         id_user: 1
         periods:
         - id_date: 2

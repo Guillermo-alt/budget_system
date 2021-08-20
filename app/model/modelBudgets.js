@@ -8,36 +8,52 @@ const AdminExpenses = require('../../db/db.adminexpenses.model');
 const Resources = require('../../db/db.resources.model');
 
 module.exports.createBudget = async (budget)=>{
-
+    try {
       //creamos budget y guardamos id budget
       const budgetC = await Budget.create({ proyect: budget.proyect, version: budget.version, active:1, id_user:budget.id_user });
         for (let p in budget.periods) { //recorre meses
-         
-                let periodsC = await Period.create({ date: budget.periods[p].date, income: budget.periods[p].income, id_budget:budgetC.id_budget });               
-
+            try {
+              let periodsC = await Period.create({age: budget.periods[p].age, month: budget.periods[p].month, income: budget.periods[p].income, id_budget:budgetC.id_budget });               
+               
             for (let i in budget.periods[p].incomes) {
                 //creamos icomes y agregamos periodos
-            
-                    let incomeC = await Income.create({ value: budget.periods[p].incomes[i].value, id_date: periodsC.id_date , id_concept:'2' });
-        
+                try {
+                    
+                  let incomeC = await Income.create({ value: budget.periods[p].incomes[i].value, id_date: periodsC.id_date , id_concept:'2' });
+                } catch (error) {
+                     throw new Error(error+' '+'error creating budget- model budget')         
+                }
             }
             for (let i in budget.periods[p].direct_cost) {
-              
+              try{
                     let costD = await DirectCost.create({ value: budget.periods[p].direct_cost[i].value, id_date: periodsC.id_date , id_concept:'2' });
-               
+                } catch (error) {
+                    throw new Error(error+' '+'error creating budget- model budget')         
+               }
             }
             for (let i in budget.periods[p].admin_expenses) {
-              
+                try{
                     let expensesC = await AdminExpenses.create({ value: budget.periods[p].admin_expenses[i].value, id_date:periodsC.id_date , id_concept:'2' });
-     
+                } catch (error) {
+                    throw new Error(error+' '+'error creating budget- model budget')          
+               }
             }
             for (let i in budget.periods[p].resources) {
-              
+                try{
                     let resour = await Resources.create({role: budget.periods[p].resources[i].role  ,cost: budget.periods[p].resources[i].cost,percentage: budget.periods[p].resources[i].percentage , id_date:periodsC.id_date }); 
-      
+                } catch (error) {
+                    throw new Error(error+' '+'error creating budget- model budget')      
+               }  
+                }
+            } catch (error) {
+                throw new Error(error+' '+'error creating budget- model budget')   
             }
         }
+ 
         return budgetC;
+    } catch (error) {
+        throw new Error('error creating budget- model budget');
+    }
 }
 
 

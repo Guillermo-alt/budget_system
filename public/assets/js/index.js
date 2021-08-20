@@ -127,13 +127,13 @@ class Index{
         let buttonEdit= document.createElement("button");
         buttonEdit.classList.add("btn");
         buttonEdit.classList.add("btn-success");
-        buttonEdit.setAttribute("onclick", `clickAdd('${budget.id_budget}')`);
+        buttonEdit.setAttribute("onclick", `editBudget('${budget.id_budget}')`);
         buttonEdit.appendChild(document.createTextNode('Editar'))
 
         let buttonSend = document.createElement("button");
         buttonSend.classList.add("btn");
         buttonSend.classList.add("btn-secondary");
-        buttonSend.setAttribute("onclick", `clickAdd('${budget.id_budget}')`);
+        buttonSend.setAttribute("onclick", `sendBudget('${budget.id_budget}')`);
         buttonSend.appendChild(document.createTextNode('Enviar'))
 
 
@@ -200,7 +200,7 @@ changePass.addEventListener('click', async ()=>{
 let newBudget = document.getElementById('newBudget');
 
 newBudget.addEventListener('click', async ()=>{
-    location.href ="./editbudget";
+    location.href ="./newBudget";
 
 });
 
@@ -217,4 +217,7 @@ logout.addEventListener('click', async ()=>{
 	}
 });
 
-//hcang
+//editBudget
+function editBudget(id_budget){
+    location.href = './editBudget/?'+id_budget
+}
