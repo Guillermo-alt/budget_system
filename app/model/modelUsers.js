@@ -1,18 +1,19 @@
 //import modelues
 const Users = require('../../db/db.users.model');
+const bcrypt = require('bcrypt');
+
+const SALT =10;
 
 module.exports.retrieveUser = async (user) => {
 	try {
 		let User = await Users.findOne({
 			where: {
-				//email: 'Guiller@homail.com',
                 email:user.email,
-                password:user.password,
                 active: 1
 			}
 		});
        
-		if (User != null) {
+		if (User != null &&  bcrypt.compareSync(user.password, User.password)) {
 			return User.dataValues;
 		}
 		throw new Error('User no longer exists or is inactive');
@@ -27,14 +28,14 @@ module.exports.UserExists = async (user) => {
 		let exists = await Users.findOne({
 			where: {
 				email: user.email,
-				password: user.password,
                 role:  user.role,
 				active: 1
 				
 			}
 
 		});
-		if (exists != null) {
+		if (exists != null &&  bcrypt.compareSync(user.password, exists.password)) {
+		
 			return true;
 		}
 		return false;
@@ -46,22 +47,46 @@ module.exports.UserExists = async (user) => {
 
 module.exports.updatePassword = async (user) => {
 	try {
-		let User = await Users.update({
-			password: user.password,
-		}, {
+		let exists = await Users.findOne({
 			where: {
 				id_user: user.id_user,
 			}
 		});
-       
-		if (User != null) {
-			return User;
-			
+		if (exists != null &&  bcrypt.compareSync(user.currentPass, exists.password)) {
+			try {
+			let User = await Users.update({
+				password: bcrypt.hashSync(user.newPass, SALT),
+			}, {
+				where: {
+					id_user: user.id_user
+				}
+			});
+			if (User != null) {
+				return User={
+					"id_user": user.id_user,
+					"response":"password changed",
+					"status":1
+				}
+			}else{
+				return User =
+				{
+					"id_user": user.id_user,
+					"response":"User no longer exists (inactive) or Incorrect password",
+					"status":0
+				}
+			}
+		} catch (error) {
+			throw new Error('User no longer exists (inactive) or Incorrect password ');	
 		}
-		throw new Error('User no longer exists or is inactive');
+		}else{
+			return User =
+				{
+					"id_user": user.id_user,
+					"response":"User no longer exists (inactive) or Incorrect password"
+				}
+		}
 	} catch (error) {
-        console.log(error)
-		throw error;
+        throw new Error('User no longer exists (inactive) or Incorrect password');
 	}
 }
 
@@ -73,7 +98,7 @@ module.exports.createUser = async (user) => {
 			last_names:user.last_names,
 			email:user.email,
 			userName:user.userName,
-			password:user.password,
+			password:bcrypt.hashSync(user.password, SALT),
 			phone_number:user.phone_number,
 			active:user.active,
 			role:user.role

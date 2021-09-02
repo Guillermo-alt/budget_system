@@ -83,18 +83,25 @@ module.exports.deleteBudget = async (param) => {
 		}, {
 			where: {
 				id_user: param.id_user,
-                                id_budget: param.id_budget
+                id_budget: param.id_budget
 			}
 		});
-       
-		if (budget != null) {
-			return budget;
-			
-		}
-		throw new Error('Budget no longer exists or is inactive');
+		if (budget ==1) {
+			return budget={
+                "id_user": param.id_budget,
+                "response":"budget deleted",
+                "status":1
+            }	
+		}else{
+            return budget={
+                "id_user": param.id_budget,
+                "response":"there was an error there is no budget or user no exist",
+                "status":0
+            } 
+        }
 	} catch (error) {
         console.log(error)
-		throw error;
+        throw new Error('there was an error there is no budget or user no exist');
 	}
 };
 

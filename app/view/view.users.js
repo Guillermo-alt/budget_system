@@ -32,12 +32,10 @@ module.exports = async (app)=>{
         }
      });
 
-	 app.post('/user/pass', middlewares.validateToken,middlewares.chamgePassInfor,/*middlewares.corsOption,*/async (req, res) =>{
+	 app.put('/user/pass', middlewares.validateToken,/*middlewares.chamgePassInfor,/*middlewares.corsOption,*/async (req, res) =>{
         try {
 			let ok = await controlUsers.updatePassword(req.body);
-			if(ok){
-				res.status(200).json('password changed !');
-			}
+				res.status(200).json(ok);	
         } catch (error) { 
             res.status(500).json('error in the request views user')
         }

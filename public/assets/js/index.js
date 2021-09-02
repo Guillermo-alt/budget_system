@@ -69,13 +69,14 @@ class Index{
 
         let pass1 = document.getElementById('pass1').value;
         let pass2 = document.getElementById('pass2').value;
+        let currentPass = document.getElementById('currentPass').value;
     
         var noValido = /\s/;
     
         if( (!noValido.test(pass1) && !noValido.test(pass2)) && ( pass2 != '' && pass1 != '') &&(pass2===pass1)){
            try {
             let resultado = await fetch('http://127.0.0.1:3000/user/pass', {
-            method: 'post',
+            method: 'PUT',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json',
@@ -83,10 +84,14 @@ class Index{
             },
             body: JSON.stringify({
                 "id_user": this.dataUser.id_user,
-                "password" : pass1,
+                "currentPass" : currentPass,
+                "newPass" : pass1,
             })
-        })
-          if(resultado){sessionStorage.clear();alert('password changed'); location.href ="./"; }
+        });
+         let res = await resultado.json()
+          if(res.status === 1){
+              sessionStorage.clear();alert('password changed'); location.href ="./"; 
+            }else{alert('password no valido');location.href ="./";}
         } catch (error) {
             console.log(error)
         }  
@@ -156,7 +161,7 @@ class Index{
     
         try {
         let ok = await fetch('http://127.0.0.1:3000/delete', {
-        method: 'post',
+        method: 'put',
         headers: {
             'Accept': 'application/json, text/plain, */*',
             'Content-Type': 'application/json',

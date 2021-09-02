@@ -26,7 +26,7 @@ const Users = sequelize.define('users', {
 		allowNull: false
 	},
     password: {
-		type: DataTypes.STRING(15),
+		type: DataTypes.STRING(100),
 		allowNull: false
 	},
 	phone_number: {
@@ -44,6 +44,8 @@ const Users = sequelize.define('users', {
 }, {
 	timestamps: true
 });
+
+
 
 Users.hasMany(Budget, { foreignKey: 'id_user', constraints: true })
 

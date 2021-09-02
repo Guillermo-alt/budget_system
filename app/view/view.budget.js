@@ -25,11 +25,11 @@ module.exports = async (app)=>{
         }
      });
 
-     app.post('/delete', middlewares.validateToken,/*middlewares.corsOption,*/async (req, res) =>{
+     app.put('/delete', middlewares.validateToken,/*middlewares.corsOption,*/async (req, res) =>{
         try {
             let ok = await constrolBugets.deleteBudget(req.body);
 			if(ok){
-                res.status(200).json('Budget deleted !');
+                res.status(200).json(ok);
             }
         } catch (error) {
             res.status(500).json('error in the request rutes budgets')
