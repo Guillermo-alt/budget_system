@@ -1,7 +1,7 @@
 /** Import modules */
 const rateLimit = require("express-rate-limit");
 const controlerUsers = require('../app/controller/controlUsers');
-const userValidationModel = require('../app/model/modelUserValidationModel');
+const userValidation = require('../DTO/userValidation');
 const Joi = require('joi');
 
 
@@ -44,7 +44,7 @@ const validateToken = async (req, res, next) => {
 
 const validateRegisterInfo = async (req, res, next) => {
 	try {
-		await Joi.attempt(req.body, userValidationModel.registerModel, 'invalid login data');
+		await Joi.attempt(req.body, userValidation.registerModel, 'invalid login data');
 		return next();
 	} catch (error) {
 		console.log(error.message);
@@ -54,7 +54,7 @@ const validateRegisterInfo = async (req, res, next) => {
 
 const validateLoginInfo = async (req, res, next) => {
 	try {
-		await Joi.attempt(req.body, userValidationModel.loginModel, 'invalid login data');
+		await Joi.attempt(req.body, userValidation.loginModel, 'invalid login data');
 		return next();
 	} catch (error) {
 		console.log(error.message);
@@ -64,7 +64,7 @@ const validateLoginInfo = async (req, res, next) => {
 
 const chamgePassInfor = async (req, res, next) => {
 	try {
-		await Joi.attempt(req.body, userValidationModel.chamgePassInfor, 'invalid login data');
+		await Joi.attempt(req.body, userValidation.chamgePassInfor, 'invalid login data');
 		return next();
 	} catch (error) {
 		console.log(error.message);
