@@ -2,7 +2,7 @@
 ---
 openapi: 3.0.0
 info:
-  title: budgetSystem
+  title: social-tecla
   contact:
     name: Guillermo Ortega Vargas
     url: https://github.com/Guillermo-alt
@@ -28,7 +28,7 @@ paths:
             schema:
               $ref: '#/components/schemas/newBudgetRequest'
             example:
-              proyect: Tienda online
+              proyect: Vgeneris
               version: 1.0.0
               id_user: "1"
               periods:
@@ -84,7 +84,77 @@ paths:
                   percentage: "50"
         required: true
       responses:
-        "200": {}
+        "200":
+          description: OK
+          headers:
+            X-Powered-By:
+              style: simple
+              explode: false
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Express
+            Access-Control-Allow-Origin:
+              style: simple
+              explode: false
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '*'
+            Content-Length:
+              style: simple
+              explode: false
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: "163"
+            ETag:
+              style: simple
+              explode: false
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: W/"a3-81x/lhh36IyywJayrygSjCWE7nw"
+            Date:
+              style: simple
+              explode: false
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 03 Sep 2021 10:30:30 GMT
+            Connection:
+              style: simple
+              explode: false
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: keep-alive
+            Keep-Alive:
+              style: simple
+              explode: false
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: timeout=5
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/newBudget'
+              example:
+                id_budget: 1
+                proyect: Tienda online
+                version: 1.0.0
+                active: true
+                id_user: 1
+                updatedAt: 2021-09-03T10:30:30.440+0000
+                createdAt: 2021-09-03T10:30:30.440+0000
       deprecated: false
   /user/login:
     post:
@@ -99,8 +169,8 @@ paths:
             schema:
               $ref: '#/components/schemas/userloginrequest'
             example:
-              email: Eduardo@gmail.com
-              password: Lalo254
+              email: guilwlswe7845@gmail.com
+              password: pass
               role: user
         required: true
       responses:
@@ -130,7 +200,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: "202"
+                  example: "207"
             ETag:
               style: simple
               explode: false
@@ -138,7 +208,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: W/"ca-pvIv+8Js0BfTe5oj+sptz9WsDdI"
+                  example: W/"cf-j2yNb5l89/mvt6oWfxT5/39kHwg"
             Date:
               style: simple
               explode: false
@@ -146,7 +216,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: Thu, 19 Aug 2021 18:06:38 GMT
+                  example: Fri, 03 Sep 2021 10:29:14 GMT
             Connection:
               style: simple
               explode: false
@@ -167,8 +237,8 @@ paths:
             application/json; charset=utf-8:
               schema:
                 type: string
-                example: '"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZ3VpbGw3Nm92QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoicGFzcyIsInJvbGUiOiJ1c2VyIn0sImlhdCI6MTYyOTM5NjM5OH0.jrX_sAjvMYtjk77UBH1d8K_NmSnQ88fV7JCZ1YwW3aE"'
-              example: '"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZ3VpbGw3Nm92QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoicGFzcyIsInJvbGUiOiJ1c2VyIn0sImlhdCI6MTYyOTM5NjM5OH0.jrX_sAjvMYtjk77UBH1d8K_NmSnQ88fV7JCZ1YwW3aE"'
+                example: '"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZ3VpbHdsc3dlNzg0NUBnbWFpbC5jb20iLCJwYXNzd29yZCI6InBhc3MiLCJyb2xlIjoidXNlciJ9LCJpYXQiOjE2MzA2NjQ5NTR9.YkivKGcZ_IKfLhZuqI8joALo47mEm057JV80Exs5k60"'
+              example: '"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZ3VpbHdsc3dlNzg0NUBnbWFpbC5jb20iLCJwYXNzd29yZCI6InBhc3MiLCJyb2xlIjoidXNlciJ9LCJpYXQiOjE2MzA2NjQ5NTR9.YkivKGcZ_IKfLhZuqI8joALo47mEm057JV80Exs5k60"'
       deprecated: false
   /user:
     get:
@@ -204,7 +274,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: "264"
+                  example: "323"
             ETag:
               style: simple
               explode: false
@@ -212,7 +282,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: W/"108-OODOsLzgBOFcqfzNrrZ2wgcpZqQ"
+                  example: W/"143-TQp7s0ie1ObFTlIQOWm8DCL5RXs"
             Date:
               style: simple
               explode: false
@@ -220,7 +290,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: Thu, 19 Aug 2021 18:11:10 GMT
+                  example: Fri, 03 Sep 2021 10:31:24 GMT
             Connection:
               style: simple
               explode: false
@@ -245,14 +315,14 @@ paths:
                 id_user: 1
                 names: Guillermo
                 last_names: Ortega Vargas
-                email: guill76ov@gmail.com
-                userName: Guiller
-                password: pass
-                phone_number: "5558109026"
+                email: guilwlswe7845@gmail.com
+                userName: Guille
+                password: $2b$10$tnpfPLSRsbiLj7WNzRyI7uoHrZd6XbBbjfMveoW6sBF4KH3VSf8Qu
+                phone_number: "5515027544"
                 active: "1"
                 role: user
-                createdAt: 2021-08-19T02:56:44.375+0000
-                updatedAt: 2021-08-19T02:56:44.375+0000
+                createdAt: 2021-09-03T10:28:17.307+0000
+                updatedAt: 2021-09-03T10:28:17.307+0000
       deprecated: false
     post:
       tags:
@@ -266,12 +336,12 @@ paths:
             schema:
               $ref: '#/components/schemas/createuserrequest'
             example:
-              names: Eduardo
-              last_names: Maturino
-              userName: Lalo78
-              email: Eduardo@gmail.com
-              password: Lalo254
-              phone_number: "5558109026"
+              names: Guillermo
+              last_names: Ortega Vargas
+              userName: Guille
+              email: guilwlswe7845@gmail.com
+              password: pass
+              phone_number: "5515027544"
               active: "1"
               role: user
         required: true
@@ -302,7 +372,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: "269"
+                  example: "323"
             ETag:
               style: simple
               explode: false
@@ -310,7 +380,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: W/"10d-zo93/8/dHmoEgjOMQf04anbtKOw"
+                  example: W/"143-MTtiFb6+I9AyQi8TIoQC3bwwSH0"
             Date:
               style: simple
               explode: false
@@ -318,7 +388,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: Thu, 19 Aug 2021 18:23:09 GMT
+                  example: Fri, 03 Sep 2021 10:28:17 GMT
             Connection:
               style: simple
               explode: false
@@ -340,17 +410,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/createuser'
               example:
-                id_user: 2
-                names: Alberto
+                id_user: 1
+                names: Guillermo
                 last_names: Ortega Vargas
-                email: betobetorias@gmail.com
-                userName: alber11
-                password: beto1458
-                phone_number: "5558109026"
+                email: guilwlswe7845@gmail.com
+                userName: Guille
+                password: $2b$10$tnpfPLSRsbiLj7WNzRyI7uoHrZd6XbBbjfMveoW6sBF4KH3VSf8Qu
+                phone_number: "5515027544"
                 active: "1"
                 role: user
-                updatedAt: 2021-08-19T18:23:09.473+0000
-                createdAt: 2021-08-19T18:23:09.473+0000
+                updatedAt: 2021-09-03T10:28:17.307+0000
+                createdAt: 2021-09-03T10:28:17.307+0000
       deprecated: false
   /budget/1:
     get:
@@ -386,7 +456,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: "493"
+                  example: "165"
             ETag:
               style: simple
               explode: false
@@ -394,7 +464,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: W/"1ed-5NJvCLfA7q7XIe0YgikgVG0YDLk"
+                  example: W/"a5-61S7bnUAFBICuu2g1cvFEpi6HoA"
             Date:
               style: simple
               explode: false
@@ -402,7 +472,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: Thu, 19 Aug 2021 18:12:54 GMT
+                  example: Fri, 03 Sep 2021 10:32:02 GMT
             Connection:
               style: simple
               explode: false
@@ -428,22 +498,8 @@ paths:
                   proyect: Tienda online
                   version: 1.0.0
                   active: true
-                  createdAt: 2021-08-19T03:03:44.264+0000
-                  updatedAt: 2021-08-19T03:03:44.264+0000
-                  id_user: 1
-                - id_budget: 2
-                  proyect: Tienda online
-                  version: 1.0.0
-                  active: true
-                  createdAt: 2021-08-19T03:04:13.811+0000
-                  updatedAt: 2021-08-19T03:04:13.811+0000
-                  id_user: 1
-                - id_budget: 3
-                  proyect: Tienda online
-                  version: 1.0.0
-                  active: true
-                  createdAt: 2021-08-19T15:07:11.584+0000
-                  updatedAt: 2021-08-19T15:07:11.584+0000
+                  createdAt: 2021-09-03T10:30:30.440+0000
+                  updatedAt: 2021-09-03T10:30:30.440+0000
                   id_user: 1
                 items:
                   $ref: '#/components/schemas/getbudgetsuser'
@@ -452,26 +508,12 @@ paths:
                 proyect: Tienda online
                 version: 1.0.0
                 active: true
-                createdAt: 2021-08-19T03:03:44.264+0000
-                updatedAt: 2021-08-19T03:03:44.264+0000
-                id_user: 1
-              - id_budget: 2
-                proyect: Tienda online
-                version: 1.0.0
-                active: true
-                createdAt: 2021-08-19T03:04:13.811+0000
-                updatedAt: 2021-08-19T03:04:13.811+0000
-                id_user: 1
-              - id_budget: 3
-                proyect: Tienda online
-                version: 1.0.0
-                active: true
-                createdAt: 2021-08-19T15:07:11.584+0000
-                updatedAt: 2021-08-19T15:07:11.584+0000
+                createdAt: 2021-09-03T10:30:30.440+0000
+                updatedAt: 2021-09-03T10:30:30.440+0000
                 id_user: 1
       deprecated: false
   /user/pass:
-    post:
+    put:
       tags:
       - Misc
       summary: change pass user
@@ -484,7 +526,8 @@ paths:
               $ref: '#/components/schemas/changepassuserrequest'
             example:
               id_user: "1"
-              password: pass
+              currentPass: pass1
+              newPass: pass
         required: true
       responses:
         "200":
@@ -513,7 +556,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: "20"
+                  example: "56"
             ETag:
               style: simple
               explode: false
@@ -521,7 +564,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: W/"14-MH+BdKzyBuHBmkiU+thVFKlVEHE"
+                  example: W/"38-xKLOgDNeweTwq7Duhpb32nEuQPA"
             Date:
               style: simple
               explode: false
@@ -529,7 +572,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: Thu, 19 Aug 2021 18:14:16 GMT
+                  example: Fri, 03 Sep 2021 10:33:25 GMT
             Connection:
               style: simple
               explode: false
@@ -549,12 +592,14 @@ paths:
           content:
             application/json; charset=utf-8:
               schema:
-                type: string
-                example: '"password changed !"'
-              example: '"password changed !"'
+                $ref: '#/components/schemas/changepassuser'
+              example:
+                id_user: "1"
+                response: password changed
+                status: 1
       deprecated: false
   /delete:
-    post:
+    put:
       tags:
       - Misc
       summary: delete budget user
@@ -567,7 +612,7 @@ paths:
               $ref: '#/components/schemas/deletebudgetuserrequest'
             example:
               id_user: "1"
-              id_budget: "3"
+              id_budget: "2"
         required: true
       responses:
         "200":
@@ -596,7 +641,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: "18"
+                  example: "54"
             ETag:
               style: simple
               explode: false
@@ -604,7 +649,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: W/"12-5QbecAi1Ep0nN7gedUfn9wzOSLE"
+                  example: W/"36-eGdKaiWQ9aKNwEGocN1nT9LzVgc"
             Date:
               style: simple
               explode: false
@@ -612,7 +657,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: Thu, 19 Aug 2021 18:17:15 GMT
+                  example: Fri, 03 Sep 2021 10:32:40 GMT
             Connection:
               style: simple
               explode: false
@@ -632,9 +677,11 @@ paths:
           content:
             application/json; charset=utf-8:
               schema:
-                type: string
-                example: '"Budget deleted !"'
-              example: '"Budget deleted !"'
+                $ref: '#/components/schemas/deletebudgetuser'
+              example:
+                id_user: "2"
+                response: budget deleted
+                status: 1
       deprecated: false
   /concept:
     post:
@@ -649,7 +696,7 @@ paths:
             schema:
               $ref: '#/components/schemas/createconceptrequest'
             example:
-              name: Mobiliario
+              name: Almacenamiento
         required: true
       responses:
         "200":
@@ -678,7 +725,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: "36"
+                  example: "33"
             ETag:
               style: simple
               explode: false
@@ -686,7 +733,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: W/"24-IJp1Z1EqpLX/fwrwLJ/HTiZNlq4"
+                  example: W/"21-bwfAsHq/HhZrLCwn8p/eABBBCsQ"
             Date:
               style: simple
               explode: false
@@ -694,7 +741,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: Thu, 19 Aug 2021 18:19:30 GMT
+                  example: Fri, 03 Sep 2021 10:27:46 GMT
             Connection:
               style: simple
               explode: false
@@ -716,8 +763,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/createconcept'
               example:
-                id_concept: 3
-                name: Mobiliario
+                id_concept: 4
+                name: Computo
       deprecated: false
   /concepts:
     get:
@@ -753,7 +800,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: "123"
+                  example: "158"
             ETag:
               style: simple
               explode: false
@@ -761,7 +808,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: W/"7b-uFyoRPIDCsOSSQL646cBcHjI3ws"
+                  example: W/"9e-D4U6BH95WyZYGf5vsFp1lO3uFuY"
             Date:
               style: simple
               explode: false
@@ -769,7 +816,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: Thu, 19 Aug 2021 18:19:51 GMT
+                  example: Fri, 03 Sep 2021 10:33:40 GMT
             Connection:
               style: simple
               explode: false
@@ -792,22 +839,26 @@ paths:
                 type: array
                 example:
                 - id_concept: 1
-                  name: Tintas impresoras
-                - id_concept: 2
                   name: Almacenamiento
+                - id_concept: 2
+                  name: Impresoras y tintas
                 - id_concept: 3
-                  name: Mobiliario
+                  name: papeleria
+                - id_concept: 4
+                  name: Computo
                 items:
-                  $ref: '#/components/schemas/getConcept'
+                  $ref: '#/components/schemas/getconcept'
               example:
               - id_concept: 1
-                name: Tintas impresoras
-              - id_concept: 2
                 name: Almacenamiento
+              - id_concept: 2
+                name: Impresoras y tintas
               - id_concept: 3
-                name: Mobiliario
+                name: papeleria
+              - id_concept: 4
+                name: Computo
       deprecated: false
-  /budget/detail/19:
+  /budget/detail/1:
     get:
       tags:
       - Misc
@@ -841,7 +892,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: "1429"
+                  example: "1451"
             ETag:
               style: simple
               explode: false
@@ -849,7 +900,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: W/"595-1a3A1dOHwXm6q1w0gQkP00mXA1Q"
+                  example: W/"5ab-I++hwfE5JQOffrZvqOAg4JGGZO4"
             Date:
               style: simple
               explode: false
@@ -857,7 +908,7 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                  example: Thu, 19 Aug 2021 18:27:47 GMT
+                  example: Fri, 03 Sep 2021 10:31:02 GMT
             Connection:
               style: simple
               explode: false
@@ -879,193 +930,197 @@ paths:
               schema:
                 type: array
                 example:
-                - id_budget: 2
+                - id_budget: 1
                   proyect: Tienda online
                   version: 1.0.0
                   active: true
-                  createdAt: 2021-08-19T03:04:13.811+0000
-                  updatedAt: 2021-08-19T03:04:13.811+0000
+                  createdAt: 2021-09-03T10:30:30.440+0000
+                  updatedAt: 2021-09-03T10:30:30.440+0000
                   id_user: 1
                   periods:
-                  - id_date: 2
-                    date: 2021-02
+                  - id_date: 1
+                    month: Febrero
+                    age: "2021"
                     income: "2500"
-                    id_budget: 2
+                    id_budget: 1
                     incomes:
-                    - id_income: 3
-                      value: "3500"
-                      id_date: 2
+                    - id_income: 1
+                      value: "5845"
+                      id_date: 1
                       id_concept: 2
-                    - id_income: 4
-                      value: "3500"
-                      id_date: 2
+                    - id_income: 2
+                      value: "547"
+                      id_date: 1
                       id_concept: 2
                     adminExpenses:
-                    - id_expenses: 3
-                      value: "5660"
-                      id_date: 2
+                    - id_expenses: 1
+                      value: "547"
+                      id_date: 1
                       id_concept: 2
-                    - id_expenses: 4
-                      value: "5660"
-                      id_date: 2
+                    - id_expenses: 2
+                      value: "5748"
+                      id_date: 1
                       id_concept: 2
                     direct_costs:
-                    - id_costD: 3
-                      value: "3500"
-                      id_date: 2
+                    - id_costD: 1
+                      value: "5789"
+                      id_date: 1
                       id_concept: 2
-                    - id_costD: 4
-                      value: "3500"
-                      id_date: 2
+                    - id_costD: 2
+                      value: "2514"
+                      id_date: 1
                       id_concept: 2
                     resources:
                     - id_resource: 1
                       role: rol 1
-                      cost: "5660"
+                      cost: "125"
                       percentage: "50"
-                      id_date: 2
+                      id_date: 1
                     - id_resource: 2
                       role: rol 2
-                      cost: "5660"
+                      cost: "265"
                       percentage: "10"
-                      id_date: 2
-                  - id_date: 3
-                    date: 2021-02
-                    income: "2800"
-                    id_budget: 2
+                      id_date: 1
+                  - id_date: 2
+                    month: Marzo
+                    age: "2021"
+                    income: "5784"
+                    id_budget: 1
                     incomes:
-                    - id_income: 5
-                      value: "5660"
-                      id_date: 3
+                    - id_income: 3
+                      value: "5898"
+                      id_date: 2
                       id_concept: 2
-                    - id_income: 6
-                      value: "5660"
-                      id_date: 3
+                    - id_income: 4
+                      value: "9874"
+                      id_date: 2
                       id_concept: 2
                     adminExpenses:
-                    - id_expenses: 5
+                    - id_expenses: 3
                       value: "5895"
-                      id_date: 3
+                      id_date: 2
                       id_concept: 2
-                    - id_expenses: 6
+                    - id_expenses: 4
                       value: "5895"
-                      id_date: 3
+                      id_date: 2
                       id_concept: 2
                     direct_costs:
-                    - id_costD: 5
-                      value: "5895"
-                      id_date: 3
+                    - id_costD: 3
+                      value: "2564"
+                      id_date: 2
                       id_concept: 2
-                    - id_costD: 6
-                      value: "5895"
-                      id_date: 3
+                    - id_costD: 4
+                      value: "2005"
+                      id_date: 2
                       id_concept: 2
                     resources:
                     - id_resource: 3
                       role: rol 1
-                      cost: "5660"
+                      cost: "1000"
                       percentage: "50"
-                      id_date: 3
+                      id_date: 2
                     - id_resource: 4
-                      role: rol 2
-                      cost: "5660"
-                      percentage: "10"
-                      id_date: 3
+                      role: rol 3
+                      cost: "1800"
+                      percentage: "50"
+                      id_date: 2
                 items:
                   $ref: '#/components/schemas/getBudgetDetail'
               example:
-              - id_budget: 2
+              - id_budget: 1
                 proyect: Tienda online
                 version: 1.0.0
                 active: true
-                createdAt: 2021-08-19T03:04:13.811+0000
-                updatedAt: 2021-08-19T03:04:13.811+0000
+                createdAt: 2021-09-03T10:30:30.440+0000
+                updatedAt: 2021-09-03T10:30:30.440+0000
                 id_user: 1
                 periods:
-                - id_date: 2
-                  date: 2021-02
+                - id_date: 1
+                  month: Febrero
+                  age: "2021"
                   income: "2500"
-                  id_budget: 2
+                  id_budget: 1
                   incomes:
-                  - id_income: 3
-                    value: "3500"
-                    id_date: 2
+                  - id_income: 1
+                    value: "5845"
+                    id_date: 1
                     id_concept: 2
-                  - id_income: 4
-                    value: "3500"
-                    id_date: 2
+                  - id_income: 2
+                    value: "547"
+                    id_date: 1
                     id_concept: 2
                   adminExpenses:
-                  - id_expenses: 3
-                    value: "5660"
-                    id_date: 2
+                  - id_expenses: 1
+                    value: "547"
+                    id_date: 1
                     id_concept: 2
-                  - id_expenses: 4
-                    value: "5660"
-                    id_date: 2
+                  - id_expenses: 2
+                    value: "5748"
+                    id_date: 1
                     id_concept: 2
                   direct_costs:
-                  - id_costD: 3
-                    value: "3500"
-                    id_date: 2
+                  - id_costD: 1
+                    value: "5789"
+                    id_date: 1
                     id_concept: 2
-                  - id_costD: 4
-                    value: "3500"
-                    id_date: 2
+                  - id_costD: 2
+                    value: "2514"
+                    id_date: 1
                     id_concept: 2
                   resources:
                   - id_resource: 1
                     role: rol 1
-                    cost: "5660"
+                    cost: "125"
                     percentage: "50"
-                    id_date: 2
+                    id_date: 1
                   - id_resource: 2
                     role: rol 2
-                    cost: "5660"
+                    cost: "265"
                     percentage: "10"
-                    id_date: 2
-                - id_date: 3
-                  date: 2021-02
-                  income: "2800"
-                  id_budget: 2
+                    id_date: 1
+                - id_date: 2
+                  month: Marzo
+                  age: "2021"
+                  income: "5784"
+                  id_budget: 1
                   incomes:
-                  - id_income: 5
-                    value: "5660"
-                    id_date: 3
+                  - id_income: 3
+                    value: "5898"
+                    id_date: 2
                     id_concept: 2
-                  - id_income: 6
-                    value: "5660"
-                    id_date: 3
+                  - id_income: 4
+                    value: "9874"
+                    id_date: 2
                     id_concept: 2
                   adminExpenses:
-                  - id_expenses: 5
+                  - id_expenses: 3
                     value: "5895"
-                    id_date: 3
+                    id_date: 2
                     id_concept: 2
-                  - id_expenses: 6
+                  - id_expenses: 4
                     value: "5895"
-                    id_date: 3
+                    id_date: 2
                     id_concept: 2
                   direct_costs:
-                  - id_costD: 5
-                    value: "5895"
-                    id_date: 3
+                  - id_costD: 3
+                    value: "2564"
+                    id_date: 2
                     id_concept: 2
-                  - id_costD: 6
-                    value: "5895"
-                    id_date: 3
+                  - id_costD: 4
+                    value: "2005"
+                    id_date: 2
                     id_concept: 2
                   resources:
                   - id_resource: 3
                     role: rol 1
-                    cost: "5660"
+                    cost: "1000"
                     percentage: "50"
-                    id_date: 3
+                    id_date: 2
                   - id_resource: 4
-                    role: rol 2
-                    cost: "5660"
-                    percentage: "10"
-                    id_date: 3
+                    role: rol 3
+                    cost: "1800"
+                    percentage: "50"
+                    id_date: 2
       deprecated: false
 components:
   schemas:
@@ -1089,7 +1144,7 @@ components:
           items:
             $ref: '#/components/schemas/Period'
       example:
-        proyect: Tienda online
+        proyect: Vgeneris
         version: 1.0.0
         id_user: "1"
         periods:
@@ -1263,6 +1318,42 @@ components:
         role: rol 1
         cost: "125"
         percentage: "50"
+    newBudget:
+      title: newBudget
+      required:
+      - active
+      - createdAt
+      - id_budget
+      - id_user
+      - proyect
+      - updatedAt
+      - version
+      type: object
+      properties:
+        id_budget:
+          type: integer
+          format: int32
+        proyect:
+          type: string
+        version:
+          type: string
+        active:
+          type: boolean
+        id_user:
+          type: integer
+          format: int32
+        updatedAt:
+          type: string
+        createdAt:
+          type: string
+      example:
+        id_budget: 1
+        proyect: Tienda online
+        version: 1.0.0
+        active: true
+        id_user: 1
+        updatedAt: 2021-09-03T10:30:30.440+0000
+        createdAt: 2021-09-03T10:30:30.440+0000
     userloginrequest:
       title: userloginrequest
       required:
@@ -1278,8 +1369,8 @@ components:
         role:
           type: string
       example:
-        email: Eduardo@gmail.com
-        password: Lalo254
+        email: guilwlswe7845@gmail.com
+        password: pass
         role: user
     getuserdata:
       title: getuserdata
@@ -1324,14 +1415,14 @@ components:
         id_user: 1
         names: Guillermo
         last_names: Ortega Vargas
-        email: guill76ov@gmail.com
-        userName: Guiller
-        password: pass
-        phone_number: "5558109026"
+        email: guilwlswe7845@gmail.com
+        userName: Guille
+        password: $2b$10$tnpfPLSRsbiLj7WNzRyI7uoHrZd6XbBbjfMveoW6sBF4KH3VSf8Qu
+        phone_number: "5515027544"
         active: "1"
         role: user
-        createdAt: 2021-08-19T02:56:44.375+0000
-        updatedAt: 2021-08-19T02:56:44.375+0000
+        createdAt: 2021-09-03T10:28:17.307+0000
+        updatedAt: 2021-09-03T10:28:17.307+0000
     getbudgetsuser:
       title: getbudgetsuser
       required:
@@ -1365,23 +1456,46 @@ components:
         proyect: Tienda online
         version: 1.0.0
         active: true
-        createdAt: 2021-08-19T03:03:44.264+0000
-        updatedAt: 2021-08-19T03:03:44.264+0000
+        createdAt: 2021-09-03T10:30:30.440+0000
+        updatedAt: 2021-09-03T10:30:30.440+0000
         id_user: 1
     changepassuserrequest:
       title: changepassuserrequest
       required:
+      - currentPass
       - id_user
-      - password
+      - newPass
       type: object
       properties:
         id_user:
           type: string
-        password:
+        currentPass:
+          type: string
+        newPass:
           type: string
       example:
         id_user: "1"
-        password: pass
+        currentPass: pass1
+        newPass: pass
+    changepassuser:
+      title: changepassuser
+      required:
+      - id_user
+      - response
+      - status
+      type: object
+      properties:
+        id_user:
+          type: string
+        response:
+          type: string
+        status:
+          type: integer
+          format: int32
+      example:
+        id_user: "1"
+        response: password changed
+        status: 1
     deletebudgetuserrequest:
       title: deletebudgetuserrequest
       required:
@@ -1395,7 +1509,26 @@ components:
           type: string
       example:
         id_user: "1"
-        id_budget: "3"
+        id_budget: "2"
+    deletebudgetuser:
+      title: deletebudgetuser
+      required:
+      - id_user
+      - response
+      - status
+      type: object
+      properties:
+        id_user:
+          type: string
+        response:
+          type: string
+        status:
+          type: integer
+          format: int32
+      example:
+        id_user: "2"
+        response: budget deleted
+        status: 1
     createconceptrequest:
       title: createconceptrequest
       required:
@@ -1405,7 +1538,7 @@ components:
         name:
           type: string
       example:
-        name: Mobiliario
+        name: Almacenamiento
     createconcept:
       title: createconcept
       required:
@@ -1419,10 +1552,10 @@ components:
         name:
           type: string
       example:
-        id_concept: 3
-        name: Mobiliario
-    getConcept:
-      title: getConcept
+        id_concept: 4
+        name: Computo
+    getconcept:
+      title: getconcept
       required:
       - id_concept
       - name
@@ -1435,7 +1568,7 @@ components:
           type: string
       example:
         id_concept: 1
-        name: Tintas impresoras
+        name: Almacenamiento
     createuserrequest:
       title: createuserrequest
       required:
@@ -1466,12 +1599,12 @@ components:
         role:
           type: string
       example:
-        names: Eduardo
-        last_names: Maturino
-        userName: Lalo78
-        email: Eduardo@gmail.com
-        password: Lalo254
-        phone_number: "5558109026"
+        names: Guillermo
+        last_names: Ortega Vargas
+        userName: Guille
+        email: guilwlswe7845@gmail.com
+        password: pass
+        phone_number: "5515027544"
         active: "1"
         role: user
     createuser:
@@ -1514,17 +1647,17 @@ components:
         createdAt:
           type: string
       example:
-        id_user: 2
-        names: Alberto
+        id_user: 1
+        names: Guillermo
         last_names: Ortega Vargas
-        email: betobetorias@gmail.com
-        userName: alber11
-        password: beto1458
-        phone_number: "5558109026"
+        email: guilwlswe7845@gmail.com
+        userName: Guille
+        password: $2b$10$tnpfPLSRsbiLj7WNzRyI7uoHrZd6XbBbjfMveoW6sBF4KH3VSf8Qu
+        phone_number: "5515027544"
         active: "1"
         role: user
-        updatedAt: 2021-08-19T18:23:09.473+0000
-        createdAt: 2021-08-19T18:23:09.473+0000
+        updatedAt: 2021-09-03T10:28:17.307+0000
+        createdAt: 2021-09-03T10:28:17.307+0000
     getBudgetDetail:
       title: getBudgetDetail
       required:
@@ -1559,115 +1692,120 @@ components:
           items:
             $ref: '#/components/schemas/Period1'
       example:
-        id_budget: 2
+        id_budget: 1
         proyect: Tienda online
         version: 1.0.0
         active: true
-        createdAt: 2021-08-19T03:04:13.811+0000
-        updatedAt: 2021-08-19T03:04:13.811+0000
+        createdAt: 2021-09-03T10:30:30.440+0000
+        updatedAt: 2021-09-03T10:30:30.440+0000
         id_user: 1
         periods:
-        - id_date: 2
-          date: 2021-02
+        - id_date: 1
+          month: Febrero
+          age: "2021"
           income: "2500"
-          id_budget: 2
+          id_budget: 1
           incomes:
-          - id_income: 3
-            value: "3500"
-            id_date: 2
+          - id_income: 1
+            value: "5845"
+            id_date: 1
             id_concept: 2
-          - id_income: 4
-            value: "3500"
-            id_date: 2
+          - id_income: 2
+            value: "547"
+            id_date: 1
             id_concept: 2
           adminExpenses:
-          - id_expenses: 3
-            value: "5660"
-            id_date: 2
+          - id_expenses: 1
+            value: "547"
+            id_date: 1
             id_concept: 2
-          - id_expenses: 4
-            value: "5660"
-            id_date: 2
+          - id_expenses: 2
+            value: "5748"
+            id_date: 1
             id_concept: 2
           direct_costs:
-          - id_costD: 3
-            value: "3500"
-            id_date: 2
+          - id_costD: 1
+            value: "5789"
+            id_date: 1
             id_concept: 2
-          - id_costD: 4
-            value: "3500"
-            id_date: 2
+          - id_costD: 2
+            value: "2514"
+            id_date: 1
             id_concept: 2
           resources:
           - id_resource: 1
             role: rol 1
-            cost: "5660"
+            cost: "125"
             percentage: "50"
-            id_date: 2
+            id_date: 1
           - id_resource: 2
             role: rol 2
-            cost: "5660"
+            cost: "265"
             percentage: "10"
-            id_date: 2
-        - id_date: 3
-          date: 2021-02
-          income: "2800"
-          id_budget: 2
+            id_date: 1
+        - id_date: 2
+          month: Marzo
+          age: "2021"
+          income: "5784"
+          id_budget: 1
           incomes:
-          - id_income: 5
-            value: "5660"
-            id_date: 3
+          - id_income: 3
+            value: "5898"
+            id_date: 2
             id_concept: 2
-          - id_income: 6
-            value: "5660"
-            id_date: 3
+          - id_income: 4
+            value: "9874"
+            id_date: 2
             id_concept: 2
           adminExpenses:
-          - id_expenses: 5
+          - id_expenses: 3
             value: "5895"
-            id_date: 3
+            id_date: 2
             id_concept: 2
-          - id_expenses: 6
+          - id_expenses: 4
             value: "5895"
-            id_date: 3
+            id_date: 2
             id_concept: 2
           direct_costs:
-          - id_costD: 5
-            value: "5895"
-            id_date: 3
+          - id_costD: 3
+            value: "2564"
+            id_date: 2
             id_concept: 2
-          - id_costD: 6
-            value: "5895"
-            id_date: 3
+          - id_costD: 4
+            value: "2005"
+            id_date: 2
             id_concept: 2
           resources:
           - id_resource: 3
             role: rol 1
-            cost: "5660"
+            cost: "1000"
             percentage: "50"
-            id_date: 3
+            id_date: 2
           - id_resource: 4
-            role: rol 2
-            cost: "5660"
-            percentage: "10"
-            id_date: 3
+            role: rol 3
+            cost: "1800"
+            percentage: "50"
+            id_date: 2
     Period1:
       title: Period1
       required:
       - adminExpenses
-      - date
+      - age
       - direct_costs
       - id_budget
       - id_date
       - income
       - incomes
+      - month
       - resources
       type: object
       properties:
         id_date:
           type: integer
           format: int32
-        date:
+        month:
+          type: string
+        age:
           type: string
         income:
           type: string
@@ -1691,48 +1829,49 @@ components:
           items:
             $ref: '#/components/schemas/Resource1'
       example:
-        id_date: 2
-        date: 2021-02
+        id_date: 1
+        month: Febrero
+        age: "2021"
         income: "2500"
-        id_budget: 2
+        id_budget: 1
         incomes:
-        - id_income: 3
-          value: "3500"
-          id_date: 2
+        - id_income: 1
+          value: "5845"
+          id_date: 1
           id_concept: 2
-        - id_income: 4
-          value: "3500"
-          id_date: 2
+        - id_income: 2
+          value: "547"
+          id_date: 1
           id_concept: 2
         adminExpenses:
-        - id_expenses: 3
-          value: "5660"
-          id_date: 2
+        - id_expenses: 1
+          value: "547"
+          id_date: 1
           id_concept: 2
-        - id_expenses: 4
-          value: "5660"
-          id_date: 2
+        - id_expenses: 2
+          value: "5748"
+          id_date: 1
           id_concept: 2
         direct_costs:
-        - id_costD: 3
-          value: "3500"
-          id_date: 2
+        - id_costD: 1
+          value: "5789"
+          id_date: 1
           id_concept: 2
-        - id_costD: 4
-          value: "3500"
-          id_date: 2
+        - id_costD: 2
+          value: "2514"
+          id_date: 1
           id_concept: 2
         resources:
         - id_resource: 1
           role: rol 1
-          cost: "5660"
+          cost: "125"
           percentage: "50"
-          id_date: 2
+          id_date: 1
         - id_resource: 2
           role: rol 2
-          cost: "5660"
+          cost: "265"
           percentage: "10"
-          id_date: 2
+          id_date: 1
     Income1:
       title: Income1
       required:
@@ -1754,9 +1893,9 @@ components:
           type: integer
           format: int32
       example:
-        id_income: 3
-        value: "3500"
-        id_date: 2
+        id_income: 1
+        value: "5845"
+        id_date: 1
         id_concept: 2
     AdminExpense1:
       title: AdminExpense1
@@ -1779,9 +1918,9 @@ components:
           type: integer
           format: int32
       example:
-        id_expenses: 3
-        value: "5660"
-        id_date: 2
+        id_expenses: 1
+        value: "547"
+        id_date: 1
         id_concept: 2
     DirectCost1:
       title: DirectCost1
@@ -1804,9 +1943,9 @@ components:
           type: integer
           format: int32
       example:
-        id_costD: 3
-        value: "3500"
-        id_date: 2
+        id_costD: 1
+        value: "5789"
+        id_date: 1
         id_concept: 2
     Resource1:
       title: Resource1
@@ -1833,9 +1972,9 @@ components:
       example:
         id_resource: 1
         role: rol 1
-        cost: "5660"
+        cost: "125"
         percentage: "50"
-        id_date: 2
+        id_date: 1
   securitySchemes:
     httpBearer:
       type: http

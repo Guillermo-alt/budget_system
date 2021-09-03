@@ -15,11 +15,15 @@ module.exports.retrieveUser = async (user) => {
        
 		if (User != null &&  bcrypt.compareSync(user.password, User.password)) {
 			return User.dataValues;
+		}else{
+			return User={
+				"id_user": user.id_user,
+				"response":"User no longer exists or is inactiv",
+			}
 		}
-		throw new Error('User no longer exists or is inactive');
 	} catch (error) {
         console.log(error)
-		throw error;
+		throw new Error('User no longer exists or is inactive');
 	}
 };
 
@@ -29,18 +33,17 @@ module.exports.UserExists = async (user) => {
 			where: {
 				email: user.email,
                 role:  user.role,
-				active: 1
-				
+				active: 1		
 			}
-
 		});
 		if (exists != null &&  bcrypt.compareSync(user.password, exists.password)) {
 		
 			return true;
-		}
-		return false;
+		}else{
+			return false;
+		}	
 	} catch (error) {
-		throw error;
+		throw new Error('an error occurred while creating user');
 	}
 };
 
@@ -93,24 +96,45 @@ module.exports.updatePassword = async (user) => {
 //create new user
 module.exports.createUser = async (user) => {
 	try {
-		let User = await Users.create({
-			names:user.names,
-			last_names:user.last_names,
-			email:user.email,
-			userName:user.userName,
-			password:bcrypt.hashSync(user.password, SALT),
-			phone_number:user.phone_number,
-			active:user.active,
-			role:user.role
+		let exists = await Users.findOne({
+			where: {
+				email: user.email,
+                role:  user.role,
+				active: 1
+				
+			}
+
 		});
-       
-		if (User != null) {
-			return User;
-			
+		if(exists == null){
+			try {
+				let User = await Users.create({
+					names:user.names,
+					last_names:user.last_names,
+					email:user.email,
+					userName:user.userName,
+					password:bcrypt.hashSync(user.password, SALT),
+					phone_number:user.phone_number,
+					active:user.active,
+					role:user.role
+				});
+			   
+				if (User != null) {
+					return User;
+					
+				}
+				
+			} catch (error) {
+				throw new Error('an error occurred while creating user');
+			}
+
+		}else{
+			return User =
+				{
+					"response":"email or user already exists",
+				}
 		}
-		throw new Error('User no longer exists or is inactive');
 	} catch (error) {
         console.log(error)
-		throw error;
+		throw new Error('an error occurred while creating user');
 	}
 }

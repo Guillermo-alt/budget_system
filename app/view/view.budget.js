@@ -1,13 +1,13 @@
 //import modules cors, midd, fetch
 const constrolBugets = require('../controller/constrolBugets');
-const middlewares = require('../../middlewares/middlewares');
+const middToken = require('../../middlewares/midd.validate.token');
+const middCorsLimit =  require('../../middlewares/midd.cors.limit');
 
 module.exports = async (app)=>{
-
-
     //create new budget
-    app.post('/budget',middlewares.validateToken, async (req, res) =>{
+    app.post('/budget',middToken.validateToken, async (req, res) =>{
         try {
+            console.log(req.body)
             let result = await constrolBugets.createBudget(req.body)
             res.json(result);
         } catch (error) {
@@ -15,7 +15,7 @@ module.exports = async (app)=>{
         }
      });
      //get quotes for each user
-     app.get('/budget/:id_user', middlewares.validateToken,/*middlewares.corsOption,*/async (req, res) =>{
+     app.get('/budget/:id_user', middToken.validateToken,/*middCorsLimit.corsOption,*/async (req, res) =>{
         let id_user = req.params.id_user
         try {
             let result = await constrolBugets.retrieveBudget(id_user);
@@ -25,7 +25,7 @@ module.exports = async (app)=>{
         }
      });
 
-     app.put('/delete', middlewares.validateToken,/*middlewares.corsOption,*/async (req, res) =>{
+     app.put('/delete', middToken.validateToken,/*middCorsLimit.corsOption,*/async (req, res) =>{
         try {
             let ok = await constrolBugets.deleteBudget(req.body);
 			if(ok){
@@ -36,8 +36,9 @@ module.exports = async (app)=>{
         }
      });
 
-     app.post('/concept', middlewares.validateToken,/*middlewares.corsOption,*/async (req, res) =>{
+     app.post('/concept',middToken.validateToken,/*middCorsLimit.corsOption,*/async (req, res) =>{
         try {
+            console.log("*******")
 			let ok = await constrolBugets.createConcept(req.body);
 			if(ok){
 				res.status(200).json(ok);
@@ -47,7 +48,7 @@ module.exports = async (app)=>{
         }
      });
 
-     app.get('/concepts', middlewares.validateToken,/*middlewares.corsOption,*/async (req, res) =>{
+     app.get('/concepts', middToken.validateToken,/*middCorsLimit.corsOption,*/async (req, res) =>{
         try {
 			let ok = await constrolBugets.getAllConcepts();
 			if(ok){
@@ -58,7 +59,7 @@ module.exports = async (app)=>{
         }
      });
 
-     app.get('/budget/detail/:id_budget', middlewares.validateToken,/*middlewares.corsOption,*/async (req, res) =>{
+     app.get('/budget/detail/:id_budget', middToken.validateToken,/*middCorsLimit.corsOption,*/async (req, res) =>{
         try {
 			let ok = await constrolBugets.getBudgetDetails(req.params.id_budget);
 			if(ok){

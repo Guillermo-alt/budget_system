@@ -1,12 +1,14 @@
 //import modules cors, midd, fetch
 const controlUsers = require('../controller/controlUsers');
-const middlewares = require('../../middlewares/middlewares');
+const middToken = require('../../middlewares/midd.validate.token');
+const middInfo = require('../../middlewares/midd.validate.info');
+const middCorsLimit =  require('../../middlewares/midd.cors.limit');
 
 module.exports = async (app)=>{
 
 
-    //get new budget
-    app.post('/user/login', middlewares.validateLoginInfo, /*middlewares.corsOption,*/async (req, res) => {
+    //login user
+    app.post('/user/login', middInfo.validateLoginInfo, /*middCorsLimit.corsOption,*/async (req, res) => {
 		let user = req.body;
 		try {
             console.log(req.body)
@@ -23,7 +25,7 @@ module.exports = async (app)=>{
 	});
 
 	//get user data
-	app.get('/user', middlewares.validateToken,/*middlewares.corsOption,*/async (req, res) =>{
+	app.get('/user', middToken.validateToken,/*middCorsLimit.corsOption,*/async (req, res) =>{
         try {
 			let user = await controlUsers.retrieveUser(req.params.user);
 			res.status(200).json(user);
@@ -32,7 +34,7 @@ module.exports = async (app)=>{
         }
      });
 
-	 app.put('/user/pass', middlewares.validateToken,/*middlewares.chamgePassInfor,/*middlewares.corsOption,*/async (req, res) =>{
+	 app.put('/user/pass', middToken.validateToken,middInfo.changePassInfor,/*middCorsLimit.corsOption,*/async (req, res) =>{
         try {
 			let ok = await controlUsers.updatePassword(req.body);
 				res.status(200).json(ok);	
@@ -41,7 +43,7 @@ module.exports = async (app)=>{
         }
      });
 	//register-create user
-	 app.post('/user',middlewares.validateRegisterInfo ,/*middlewares.corsOption,*/async (req, res) =>{
+	 app.post('/user',middInfo.validateRegisterInfo ,/*middCorsLimit.corsOption,*/async (req, res) =>{
         try {
 			let user = await controlUsers.createUser(req.body);
 			res.status(200).json(user);

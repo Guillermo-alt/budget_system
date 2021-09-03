@@ -6,7 +6,7 @@ const modelsBudget= require('../app/model/modelBudgets');
 
 describe('Given a budget object', () => {
     let id_user=1;
-    let id_budget=2;
+    let id_budget=1;
     let Budget = {
         "proyect": "Tienda online",
         "version": "1.0.0",

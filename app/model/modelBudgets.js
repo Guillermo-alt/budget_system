@@ -66,13 +66,18 @@ module.exports.retrieveBudget = async (id_user) => {
 		        }
 		});
        
-		if (budget != null) {
+		if (budget[0] != null) {
 			return budget;
-		}
-		throw new Error('Budget no longer exists or is inactive');
+		}else{
+            return budget={
+				"id_user": id_user,
+				"response":"Budget or User no longer exists or is inactive",
+			}
+        }
+		
 	} catch (error) {
         console.log(error)
-		throw error;
+		throw new Error('Budget or User no longer exists or is inactive');
 	}
 };
 
@@ -142,7 +147,14 @@ module.exports.getBudgetDetails = async (budget)=> {
 				id_budget:budget
 			  } }
 		  })
-		return result;
+		if(result[0]!=null){
+            return result;
+        }else{
+            return result={
+				"id_budget": budget,
+				"response":" budget does not exist",
+			}
+        }
     }catch(err){
         console.log(err)
         throw new Error (err+ 'problem in product models')

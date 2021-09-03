@@ -1,0 +1,1038 @@
+{
+	"info": {
+		"_postman_id": "3c70c259-6e80-4139-bbfc-885ee09f760d",
+		"name": "budgetSystem",
+		"description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "new Budget",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZ3VpbHdsc3dlNzg0NUBnbWFpbC5jb20iLCJwYXNzd29yZCI6InBhc3MiLCJyb2xlIjoidXNlciJ9LCJpYXQiOjE2MzA2NjQ5NTR9.YkivKGcZ_IKfLhZuqI8joALo47mEm057JV80Exs5k60",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"proyect\": \"Vgeneris\",\r\n    \"version\": \"1.0.0\",\r\n    \"id_user\": \"1\",\r\n    \"periods\": [\r\n        {\r\n            \"age\": \"2021\",\r\n            \"month\": \"Febrero\",\r\n            \"income\": \"2500\",\r\n            \"incomes\": [\r\n                {\r\n                    \"value\": \"5845\",\r\n                    \"id_concept\": \"2\"\r\n                },\r\n                {\r\n                    \"value\": \"547\",\r\n                    \"id_concept\": \"1\"\r\n                }\r\n            ],\r\n            \"direct_cost\": [\r\n                {\r\n                    \"value\": \"5789\",\r\n                    \"id_concept\": \"1\"\r\n                },\r\n                {\r\n                    \"value\": \"2514\",\r\n                    \"id_concept\": \"2\"\r\n                }\r\n            ],\r\n            \"admin_expenses\": [\r\n                {\r\n                    \"value\": \"547\",\r\n                    \"id_concept\": \"2\"\r\n                },\r\n                {\r\n                    \"value\": \"5748\",\r\n                    \"id_concept\": \"3\"\r\n                }\r\n            ],\r\n            \"resources\": [\r\n                {\r\n                    \"role\": \"rol 1\",\r\n                    \"cost\": \"125\",\r\n                    \"percentage\": \"50\"\r\n                },\r\n                {\r\n                    \"role\": \"rol 2\",\r\n                    \"cost\": \"265\",\r\n                    \"percentage\": \"10\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"age\": \"2021\",\r\n            \"month\": \"Marzo\",\r\n            \"income\": \"5784\",\r\n            \"incomes\": [\r\n                {\r\n                    \"value\": \"5898\",\r\n                    \"id_concept\": \"3\"\r\n                },\r\n                {\r\n                    \"value\": \"9874\",\r\n                    \"id_concept\": \"3\"\r\n                }\r\n            ],\r\n            \"direct_cost\": [\r\n                {\r\n                    \"value\": \"2564\",\r\n                    \"id_concept\": \"2\"\r\n                },\r\n                {\r\n                    \"value\": \"2005\",\r\n                    \"id_concept\": \"1\"\r\n                }\r\n            ],\r\n            \"admin_expenses\": [\r\n                {\r\n                    \"value\": \"5895\",\r\n                    \"id_concept\": \"1\"\r\n                },\r\n                {\r\n                    \"value\": \"5895\",\r\n                    \"id_concept\": \"2\"\r\n                }\r\n            ],\r\n            \"resources\": [\r\n                {\r\n                    \"role\": \"rol 1\",\r\n                    \"cost\": \"1000\",\r\n                    \"percentage\": \"50\"\r\n                },\r\n                {\r\n                    \"role\": \"rol 3\",\r\n                    \"cost\": \"1800\",\r\n                    \"percentage\": \"50\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/budget",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"budget"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "new Budget",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"proyect\": \"Tienda online\",\r\n    \"version\": \"1.0.0\",\r\n    \"id_user\": \"1\",\r\n    \"periods\": [\r\n        {\r\n            \"age\": \"2021\",\r\n            \"month\": \"Febrero\",\r\n            \"income\": \"2500\",\r\n            \"incomes\": [\r\n                {\r\n                    \"value\": \"5845\",\r\n                    \"id_concept\": \"2\"\r\n                },\r\n                {\r\n                    \"value\": \"547\",\r\n                    \"id_concept\": \"1\"\r\n                }\r\n            ],\r\n            \"direct_cost\": [\r\n                {\r\n                    \"value\": \"5789\",\r\n                    \"id_concept\": \"1\"\r\n                },\r\n                {\r\n                    \"value\": \"2514\",\r\n                    \"id_concept\": \"2\"\r\n                }\r\n            ],\r\n            \"admin_expenses\": [\r\n                {\r\n                    \"value\": \"547\",\r\n                    \"id_concept\": \"2\"\r\n                },\r\n                {\r\n                    \"value\": \"5748\",\r\n                    \"id_concept\": \"3\"\r\n                }\r\n            ],\r\n            \"resources\": [\r\n                {\r\n                    \"role\": \"rol 1\",\r\n                    \"cost\": \"125\",\r\n                    \"percentage\": \"50\"\r\n                },\r\n                {\r\n                    \"role\": \"rol 2\",\r\n                    \"cost\": \"265\",\r\n                    \"percentage\": \"10\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"age\": \"2021\",\r\n            \"month\": \"Marzo\",\r\n            \"income\": \"5784\",\r\n            \"incomes\": [\r\n                {\r\n                    \"value\": \"5898\",\r\n                    \"id_concept\": \"3\"\r\n                },\r\n                {\r\n                    \"value\": \"9874\",\r\n                    \"id_concept\": \"3\"\r\n                }\r\n            ],\r\n            \"direct_cost\": [\r\n                {\r\n                    \"value\": \"2564\",\r\n                    \"id_concept\": \"2\"\r\n                },\r\n                {\r\n                    \"value\": \"2005\",\r\n                    \"id_concept\": \"1\"\r\n                }\r\n            ],\r\n            \"admin_expenses\": [\r\n                {\r\n                    \"value\": \"5895\",\r\n                    \"id_concept\": \"1\"\r\n                },\r\n                {\r\n                    \"value\": \"5895\",\r\n                    \"id_concept\": \"2\"\r\n                }\r\n            ],\r\n            \"resources\": [\r\n                {\r\n                    \"role\": \"rol 1\",\r\n                    \"cost\": \"1000\",\r\n                    \"percentage\": \"50\"\r\n                },\r\n                {\r\n                    \"role\": \"rol 3\",\r\n                    \"cost\": \"1800\",\r\n                    \"percentage\": \"50\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/budget",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"budget"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "163"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a3-81x/lhh36IyywJayrygSjCWE7nw\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 03 Sep 2021 10:30:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id_budget\": 1,\n    \"proyect\": \"Tienda online\",\n    \"version\": \"1.0.0\",\n    \"active\": true,\n    \"id_user\": 1,\n    \"updatedAt\": \"2021-09-03T10:30:30.440Z\",\n    \"createdAt\": \"2021-09-03T10:30:30.440Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "user login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"guilwlswe7845@gmail.com\",\r\n    \"password\": \"pass\",\r\n    \"role\": \"user\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/user/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "user login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"guilwlswe7845@gmail.com\",\r\n    \"password\": \"pass\",\r\n    \"role\": \"user\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/user/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "207"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"cf-j2yNb5l89/mvt6oWfxT5/39kHwg\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 03 Sep 2021 10:29:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZ3VpbHdsc3dlNzg0NUBnbWFpbC5jb20iLCJwYXNzd29yZCI6InBhc3MiLCJyb2xlIjoidXNlciJ9LCJpYXQiOjE2MzA2NjQ5NTR9.YkivKGcZ_IKfLhZuqI8joALo47mEm057JV80Exs5k60\""
+				}
+			]
+		},
+		{
+			"name": "get user data",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZ3VpbHdsc3dlNzg0NUBnbWFpbC5jb20iLCJwYXNzd29yZCI6InBhc3MiLCJyb2xlIjoidXNlciJ9LCJpYXQiOjE2MzA2NjQ5NTR9.YkivKGcZ_IKfLhZuqI8joALo47mEm057JV80Exs5k60",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get user data",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/user",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "323"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"143-TQp7s0ie1ObFTlIQOWm8DCL5RXs\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 03 Sep 2021 10:31:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id_user\": 1,\n    \"names\": \"Guillermo\",\n    \"last_names\": \"Ortega Vargas\",\n    \"email\": \"guilwlswe7845@gmail.com\",\n    \"userName\": \"Guille\",\n    \"password\": \"$2b$10$tnpfPLSRsbiLj7WNzRyI7uoHrZd6XbBbjfMveoW6sBF4KH3VSf8Qu\",\n    \"phone_number\": \"5515027544\",\n    \"active\": \"1\",\n    \"role\": \"user\",\n    \"createdAt\": \"2021-09-03T10:28:17.307Z\",\n    \"updatedAt\": \"2021-09-03T10:28:17.307Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get budgets user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZ3VpbHdsc3dlNzg0NUBnbWFpbC5jb20iLCJwYXNzd29yZCI6InBhc3MiLCJyb2xlIjoidXNlciJ9LCJpYXQiOjE2MzA2NjQ5NTR9.YkivKGcZ_IKfLhZuqI8joALo47mEm057JV80Exs5k60",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/budget/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"budget",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get budgets user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/budget/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"budget",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "165"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a5-61S7bnUAFBICuu2g1cvFEpi6HoA\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 03 Sep 2021 10:32:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id_budget\": 1,\n        \"proyect\": \"Tienda online\",\n        \"version\": \"1.0.0\",\n        \"active\": true,\n        \"createdAt\": \"2021-09-03T10:30:30.440Z\",\n        \"updatedAt\": \"2021-09-03T10:30:30.440Z\",\n        \"id_user\": 1\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "change pass user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZ3VpbHdsc3dlNzg0NUBnbWFpbC5jb20iLCJwYXNzd29yZCI6InBhc3MiLCJyb2xlIjoidXNlciJ9LCJpYXQiOjE2MzA2NjAwMzN9.Hw352gTKakhPJAPsOZO_oBdInwXUwEJApl8Xrp5Q7cw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_user\":\"1\",\r\n    \"currentPass\":\"pass1\",\r\n    \"newPass\":\"pass\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/user/pass",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"pass"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "change pass user",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_user\":\"1\",\r\n    \"currentPass\":\"pass1\",\r\n    \"newPass\":\"pass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/user/pass",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"pass"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "56"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"38-xKLOgDNeweTwq7Duhpb32nEuQPA\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 03 Sep 2021 10:33:25 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id_user\": \"1\",\n    \"response\": \"password changed\",\n    \"status\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "delete budget user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiRWR1YXJkb0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IkxhbG8yNTQiLCJyb2xlIjoidXNlciJ9LCJpYXQiOjE2Mjk0NzI2NDB9.Fa7NKbpCwEp32n7pV2sDLVBSPqvPiIA0vGae2I9CtTE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_user\":\"1\",\r\n    \"id_budget\":\"2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/delete",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"delete"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "delete budget user",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_user\":\"1\",\r\n    \"id_budget\":\"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"delete"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "54"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"36-eGdKaiWQ9aKNwEGocN1nT9LzVgc\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 03 Sep 2021 10:32:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id_user\": \"2\",\n    \"response\": \"budget deleted\",\n    \"status\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "create concept",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZ3VpbHdsc3dlNzg0NUBnbWFpbC5jb20iLCJwYXNzd29yZCI6InBhc3MiLCJyb2xlIjoidXNlciJ9LCJpYXQiOjE2MzA2NjE3NTd9.2Q5yjnJHfVHQVMOMOWaFbxCjikt2gBxlI8QqBDBBYyI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Almacenamiento\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/concept",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"concept"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create concept",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Almacenamiento\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/concept",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"concept"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "33"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"21-bwfAsHq/HhZrLCwn8p/eABBBCsQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 03 Sep 2021 10:27:46 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id_concept\": 4,\n    \"name\": \"Computo\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get concepts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZ3VpbHdsc3dlNzg0NUBnbWFpbC5jb20iLCJwYXNzd29yZCI6InBhc3MiLCJyb2xlIjoidXNlciJ9LCJpYXQiOjE2MzA2NjQ5NTR9.YkivKGcZ_IKfLhZuqI8joALo47mEm057JV80Exs5k60",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/concepts",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"concepts"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get concepts",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/concepts",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"concepts"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "158"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"9e-D4U6BH95WyZYGf5vsFp1lO3uFuY\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 03 Sep 2021 10:33:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id_concept\": 1,\n        \"name\": \"Almacenamiento\"\n    },\n    {\n        \"id_concept\": 2,\n        \"name\": \"Impresoras y tintas\"\n    },\n    {\n        \"id_concept\": 3,\n        \"name\": \"papeleria\"\n    },\n    {\n        \"id_concept\": 4,\n        \"name\": \"Computo\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"names\":\"Guillermo\",\r\n    \"last_names\":\"Ortega Vargas\",\r\n    \"userName\":\"Guille\",\r\n    \"email\":\"guilwlswe7845@gmail.com\",\r\n    \"password\":\"pass\",\r\n    \"phone_number\":\"5515027544\",\r\n    \"active\":\"1\",\r\n    \"role\":\"user\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"names\":\"Guillermo\",\r\n    \"last_names\":\"Ortega Vargas\",\r\n    \"userName\":\"Guille\",\r\n    \"email\":\"guilwlswe7845@gmail.com\",\r\n    \"password\":\"pass\",\r\n    \"phone_number\":\"5515027544\",\r\n    \"active\":\"1\",\r\n    \"role\":\"user\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/user",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "323"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"143-MTtiFb6+I9AyQi8TIoQC3bwwSH0\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 03 Sep 2021 10:28:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id_user\": 1,\n    \"names\": \"Guillermo\",\n    \"last_names\": \"Ortega Vargas\",\n    \"email\": \"guilwlswe7845@gmail.com\",\n    \"userName\": \"Guille\",\n    \"password\": \"$2b$10$tnpfPLSRsbiLj7WNzRyI7uoHrZd6XbBbjfMveoW6sBF4KH3VSf8Qu\",\n    \"phone_number\": \"5515027544\",\n    \"active\": \"1\",\n    \"role\": \"user\",\n    \"updatedAt\": \"2021-09-03T10:28:17.307Z\",\n    \"createdAt\": \"2021-09-03T10:28:17.307Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get Budget Details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZ3VpbHdsc3dlNzg0NUBnbWFpbC5jb20iLCJwYXNzd29yZCI6InBhc3MiLCJyb2xlIjoidXNlciJ9LCJpYXQiOjE2MzA2NjQ5NTR9.YkivKGcZ_IKfLhZuqI8joALo47mEm057JV80Exs5k60",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/budget/detail/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"budget",
+						"detail",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get Budget Details",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/budget/detail/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"budget",
+								"detail",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1451"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5ab-I++hwfE5JQOffrZvqOAg4JGGZO4\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 03 Sep 2021 10:31:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id_budget\": 1,\n        \"proyect\": \"Tienda online\",\n        \"version\": \"1.0.0\",\n        \"active\": true,\n        \"createdAt\": \"2021-09-03T10:30:30.440Z\",\n        \"updatedAt\": \"2021-09-03T10:30:30.440Z\",\n        \"id_user\": 1,\n        \"periods\": [\n            {\n                \"id_date\": 1,\n                \"month\": \"Febrero\",\n                \"age\": \"2021\",\n                \"income\": \"2500\",\n                \"id_budget\": 1,\n                \"incomes\": [\n                    {\n                        \"id_income\": 1,\n                        \"value\": \"5845\",\n                        \"id_date\": 1,\n                        \"id_concept\": 2\n                    },\n                    {\n                        \"id_income\": 2,\n                        \"value\": \"547\",\n                        \"id_date\": 1,\n                        \"id_concept\": 2\n                    }\n                ],\n                \"adminExpenses\": [\n                    {\n                        \"id_expenses\": 1,\n                        \"value\": \"547\",\n                        \"id_date\": 1,\n                        \"id_concept\": 2\n                    },\n                    {\n                        \"id_expenses\": 2,\n                        \"value\": \"5748\",\n                        \"id_date\": 1,\n                        \"id_concept\": 2\n                    }\n                ],\n                \"direct_costs\": [\n                    {\n                        \"id_costD\": 1,\n                        \"value\": \"5789\",\n                        \"id_date\": 1,\n                        \"id_concept\": 2\n                    },\n                    {\n                        \"id_costD\": 2,\n                        \"value\": \"2514\",\n                        \"id_date\": 1,\n                        \"id_concept\": 2\n                    }\n                ],\n                \"resources\": [\n                    {\n                        \"id_resource\": 1,\n                        \"role\": \"rol 1\",\n                        \"cost\": \"125\",\n                        \"percentage\": \"50\",\n                        \"id_date\": 1\n                    },\n                    {\n                        \"id_resource\": 2,\n                        \"role\": \"rol 2\",\n                        \"cost\": \"265\",\n                        \"percentage\": \"10\",\n                        \"id_date\": 1\n                    }\n                ]\n            },\n            {\n                \"id_date\": 2,\n                \"month\": \"Marzo\",\n                \"age\": \"2021\",\n                \"income\": \"5784\",\n                \"id_budget\": 1,\n                \"incomes\": [\n                    {\n                        \"id_income\": 3,\n                        \"value\": \"5898\",\n                        \"id_date\": 2,\n                        \"id_concept\": 2\n                    },\n                    {\n                        \"id_income\": 4,\n                        \"value\": \"9874\",\n                        \"id_date\": 2,\n                        \"id_concept\": 2\n                    }\n                ],\n                \"adminExpenses\": [\n                    {\n                        \"id_expenses\": 3,\n                        \"value\": \"5895\",\n                        \"id_date\": 2,\n                        \"id_concept\": 2\n                    },\n                    {\n                        \"id_expenses\": 4,\n                        \"value\": \"5895\",\n                        \"id_date\": 2,\n                        \"id_concept\": 2\n                    }\n                ],\n                \"direct_costs\": [\n                    {\n                        \"id_costD\": 3,\n                        \"value\": \"2564\",\n                        \"id_date\": 2,\n                        \"id_concept\": 2\n                    },\n                    {\n                        \"id_costD\": 4,\n                        \"value\": \"2005\",\n                        \"id_date\": 2,\n                        \"id_concept\": 2\n                    }\n                ],\n                \"resources\": [\n                    {\n                        \"id_resource\": 3,\n                        \"role\": \"rol 1\",\n                        \"cost\": \"1000\",\n                        \"percentage\": \"50\",\n                        \"id_date\": 2\n                    },\n                    {\n                        \"id_resource\": 4,\n                        \"role\": \"rol 3\",\n                        \"cost\": \"1800\",\n                        \"percentage\": \"50\",\n                        \"id_date\": 2\n                    }\n                ]\n            }\n        ]\n    }\n]"
+				}
+			]
+		}
+	]
+}
